@@ -11,5 +11,7 @@ export function background(imgList, id) {
       ");animation:imageAnimation " + duration + "s linear infinite " + i * 6 + "s;-webkit-animation:imageAnimation " +
       duration + "s linear infinite " + i * 6 + "s;'></span></li>";
   }
-  document.getElementById('background-list').innerHTML = rs;
+  if (process.client) {
+    document.getElementById('background-list').innerHTML = rs;
+  }
 }

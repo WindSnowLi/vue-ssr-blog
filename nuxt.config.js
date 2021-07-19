@@ -28,18 +28,9 @@ export default {
       href: '/favicon.ico'
     }],
     script: [{
-        src: '/js/jquery-1.12.1.min.js',
-        ssr: false
-      },
-      {
-        src: '/js/scripts.js',
-        ssr: false
-      },
-      {
-        src: '/js/background.js',
-        ssr: false
-      }
-    ]
+      src: '/js/jquery-1.12.1.min.js',
+      ssr: false
+    }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -53,8 +44,15 @@ export default {
     {
       src: '~/plugins/magnific-popup/jquery.magnific-popup.min.js',
       ssr: false
+    },
+    {
+      src: '~/plugins/js/scripts.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/js/background.js',
+      ssr: false
     }
-
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

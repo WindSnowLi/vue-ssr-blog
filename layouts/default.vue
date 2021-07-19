@@ -21,7 +21,7 @@
   import {
     getConfigByUserId
   } from '@/api/article.js'
-  import { background } from '/static/js/background.js'
+  import { background } from '@/plugins/js/background.js'
   import HeaderBar from '@/components/HeaderBar'
   import BackTop from '@/components/BackTop'
   export default {

@@ -32,7 +32,6 @@
   import ListSidebar from './ListSidebar'
   import paging from './paging'
   import MySidebar from './MySidebar'
-
   export default {
     name: 'HomePage',
     components: {
@@ -48,21 +47,51 @@
         limit: 9,
         historyArticles: [],
         labels: [],
-        mostVisits: [],
-        user: {
-          //ID
-          id: "",
-          //账户
-          account: "",
-          //昵称
-          nickname: "",
-          //头像链接
-          avatar: "",
-          //QQ
-          qq: "",
-          //个人介绍
-          introduction: ""
-        },
+        mostVisits: []
+      }
+    },
+    props: {
+      user: {
+        type: Object,
+        required: true,
+        default: () => {
+          return {
+            //ID
+            id: "",
+            //账户
+            account: "",
+            //昵称
+            nickname: "",
+            //头像链接
+            avatar: "",
+            //QQ
+            qq: "",
+            //个人介绍
+            introduction: ""
+          }
+        }
+      }
+    },
+    head() {
+      return {
+        title: this.user.nickname + '的个人博客',
+        meta: [{
+            name: 'keywords',
+            content: this.user.nickname + '的个人博客'
+          },
+          {
+            name: 'author',
+            content: this.user.nickname
+          },
+          {
+            name: 'robots',
+            content: 'index,follow'
+          },
+          {
+            name: 'description',
+            content: this.user.nickname + '的个人博客'
+          }
+        ]
       }
     },
     methods: {
@@ -84,10 +113,6 @@
       // 最多访问量侧边栏
       getMostVisits().then(data => {
         _self.mostVisits = data
-      })
-      // 侧边栏
-      findUserByUserId().then(data => {
-        _self.user = data
       })
       // 所有标签
       getAllLabel().then(data => {

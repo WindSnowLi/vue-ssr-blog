@@ -1,9 +1,21 @@
 <template>
-  <home-page></home-page>
+  <home-page :user="user"></home-page>
 </template>
 
 <script>
-export default {}
+  import axios from "axios"
+  import {
+    findUserByUserId
+  } from '@/api/article.js'
+  export default {
+    asyncData() {
+      return findUserByUserId().then(res => {
+        return {
+          user: res
+        }
+      })
+    },
+  }
 </script>
 <style>
   @import "../static/css/style.css";

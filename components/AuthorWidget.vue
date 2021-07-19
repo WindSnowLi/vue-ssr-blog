@@ -8,7 +8,7 @@
       </div>
       <!-- 作者名字 -->
       <div class="author-name text-center">
-        <a href="#/"> {{ user.nickname }} </a>
+        <a href="#"> {{ user.nickname }} </a>
       </div>
 
       <!-- 作者介绍 -->

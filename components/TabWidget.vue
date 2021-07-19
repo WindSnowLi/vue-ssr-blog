@@ -10,6 +10,7 @@
     <div class="widget-content tagcloud">
       <router-link :value="label" :key="i" v-for="(label,i) in labels"
         :to="{ name:'article-tag-id',params:{ id: label.id } }">
+        <fa :icon="['fas', 'tag']" />
         {{label.name}}
       </router-link>
     </div>

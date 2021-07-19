@@ -39,7 +39,7 @@
           {
             title: '分类',
             to: {
-              name: 'type'
+              name: 'article-type'
             }
           },
           {

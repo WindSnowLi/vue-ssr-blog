@@ -15,7 +15,7 @@
                 </div>
                 <!-- 类别 -->
                 <p class="cats">
-                  <i class="fa fa-list-alt"></i>
+                  <fa :icon="['fas', 'list-alt']" />
                   <nuxt-link :to="{ name: 'article-type-id', params: { id: articleDetail.article.articleType.id } }">
                     {{articleDetail.article.articleType.name}}
                   </nuxt-link>
@@ -29,7 +29,7 @@
                     </li>
                     <li class="meta-date"><a href="#">{{articleDetail.article.createTime}}</a></li>
                     <li class="meta-date">
-                      <i class="fa fa-eye"></i>
+                      <fa :icon="['fas', 'eye']" />
                       <a href="#">{{articleDetail.article.visitsCount}}</a>
                     </li>
                   </ul>
@@ -49,6 +49,7 @@
             <div class="post-all-tags">
               <template v-for="(label,i) in articleDetail.article.labels">
                 <nuxt-link :value="label" :key="i" :to="{ name: 'article-tag-id', params: { id: label.id } }">
+                  <fa :icon="['fas', 'tag']" />
                   {{label.name}}
                 </nuxt-link>
               </template>

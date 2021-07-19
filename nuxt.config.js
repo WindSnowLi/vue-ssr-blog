@@ -1,4 +1,8 @@
 export default {
+  server: {
+    port: 3000, // default: 3000
+    host: "0.0.0.0", // default: localhost
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'vue-ssr-blog',
@@ -84,7 +88,12 @@ export default {
     ]
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    // 解决引用文件过大会报错的问题
+    babel: {
+      compact: false
+    }
+  },
   env: {
     BASE_URL: process.env.BASE_URL,
     NODE_ENV: process.env.NODE_ENV

@@ -1,0 +1,61 @@
+<template>
+  <div>
+    <page-title title="首页" :routeList="getPageTitle()"></page-title>
+    <div class="container pt-120 pb-90">
+      <div class="row">
+        <!-- 分类 -->
+        <div class="col-md-6" :value="label" :key="i" v-for="(label,i) in labels">
+          <div class="my-post-category">
+            <nuxt-link :to="{ name:'article-tag-id',params:{ id: label.id } }"
+              class="d-flex align-items-center justify-content-center"
+              v-bind:style="{ backgroundImage: 'url(' + label.coverPic + ')' }">
+              <div class="cat-title" style="text-align:center">
+                <i class="fa fa-tag"></i>&ensp;{{label.name}}（{{label.num}}）
+                <br>
+                <i class="fa fa-eye"></i>&ensp;{{label.visitsCount}}
+              </div>
+            </nuxt-link>
+          </div>
+        </div>
+        <!-- 分类结束 -->
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import {
+    getAllLabel
+  } from '@/api/article.js'
+  export default {
+    name: 'Tag',
+    data() {
+      return {
+        labels: [],
+      }
+    },
+    methods: {
+      getPageTitle() {
+        return [{
+            title: '首页',
+            to: {
+              name: 'index'
+            }
+          },
+          {
+            title: '标签',
+            to: {
+              name: 'article-tag'
+            }
+          }
+        ]
+      }
+    },
+    created: function() {
+      const _self = this
+      getAllLabel().then(data => {
+        _self.labels = data
+      })
+    }
+  }
+</script>

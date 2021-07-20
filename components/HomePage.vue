@@ -54,22 +54,6 @@
       user: {
         type: Object,
         required: true,
-        default: () => {
-          return {
-            //ID
-            id: "",
-            //账户
-            account: "",
-            //昵称
-            nickname: "",
-            //头像链接
-            avatar: "",
-            //QQ
-            qq: "",
-            //个人介绍
-            introduction: ""
-          }
-        }
       }
     },
     methods: {

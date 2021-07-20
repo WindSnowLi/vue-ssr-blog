@@ -71,95 +71,26 @@
   import MySidebar from './MySidebar'
   import MarkDown from './MarkDown'
   import PageTitle from './PageTitle'
-  import {
-    getMostVisits,
-    findUserByUserId,
-    getAllLabel,
-    getArticleById
-  } from '@/api/article.js'
 
   export default {
     name: 'Detail',
-    data() {
-      return {
-        articleDetail: {
-          user: {
-            //ID
-            id: "",
-            //账户
-            account: "",
-            //昵称
-            nickname: "",
-            //头像链接
-            avatar: "",
-            //QQ
-            qq: "",
-            //个人介绍
-            introduction: "",
-          },
-          article: {
-            content: "",
-            coverPic: "",
-            createTime: "",
-            articleType: {
-              //label ID
-              id: 0,
-              //label名称
-              name: "",
-              //封面
-              coverPic: "",
-              //浏览次数
-              visitsCount: "",
-              //所属文章总数
-              num: ""
-            },
-            id: 0,
-            labels: [{
-              id: 0,
-              name: "",
-              visitsCount: 0
-            }],
-            status: "",
-            summary: "",
-            title: "",
-            updateTime: "",
-            visitsCount: 0
-          }
-        },
-        user: {
-          //ID
-          id: "",
-          //账户
-          account: "",
-          //昵称
-          nickname: "",
-          //头像链接
-          avatar: "",
-          //QQ
-          qq: "",
-          //个人介绍
-          introduction: "",
-        },
-        labels: [],
-        mostVisits: [],
-        show: true
+    props: {
+      articleDetail: {
+        type: Object,
+        required: true
+      },
+      user: {
+        type: Object,
+        required: true
+      },
+      labels: {
+        type: Array,
+        required: true
+      },
+      mostVisits: {
+        type: Array,
+        required: true
       }
-    },
-    created: function() {
-      const _self = this
-      getArticleById(this.$route.params.id).then(data => {
-        _self.articleDetail.article = data.article
-        _self.articleDetail.user = data.user
-      })
-      findUserByUserId().then(data => {
-        _self.user = data
-      })
-      getMostVisits().then(data => {
-        _self.mostVisits = data
-      })
-      getAllLabel().then(data => {
-        _self.labels = data
-      })
     },
     methods: {
       getPageTitle(article) {

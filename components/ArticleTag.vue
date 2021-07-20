@@ -1,31 +1,22 @@
 <template>
   <div>
-    <page-title title="首页" :routeList="getPageTitle()"></page-title>
+    <page-title title="首页" :route-list="getPageTitle()"></page-title>
     <blog-grid-3 :articles="articles"></blog-grid-3>
   </div>
 </template>
 
 <script>
   import PageTitle from './PageTitle'
-  import {
-    getArticlesByLabel,
-    getLabelById
-  } from '@/api/article.js'
   export default {
     name: 'ArticleTag',
-    data() {
-      return {
-        articles: [],
-        label: {
-          //label名称
-          name: "",
-          //封面
-          coverPic: "",
-          //浏览次数
-          visitsCount: 0,
-          //所属文章总数
-          num: 0
-        }
+    props: {
+      articles: {
+        type: Array,
+        required: true
+      },
+      label: {
+        type: Object,
+        required: true
       }
     },
     methods: {
@@ -53,15 +44,6 @@
           }
         ]
       }
-    },
-    created() {
-      const _self = this
-      getArticlesByLabel(this.$route.params.id).then(data => {
-        _self.articles = data
-      })
-      getLabelById(this.$route.params.id).then(data => {
-        _self.label = data
-      })
-    },
+    }
   }
 </script>

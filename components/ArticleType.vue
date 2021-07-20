@@ -13,19 +13,16 @@
   import PageTitle from './PageTitle'
   export default {
     name: 'ArticleType',
-    data() {
-      return {
-        articles: [],
-        label: {
-          //label名称
-          name: "",
-          //封面
-          coverPic: "",
-          //浏览次数
-          visitsCount: 0,
-          //所属文章总数
-          num: 0
+    props: {
+      articles: {
+        type: Array,
+        default: () => {
+          return []
         }
+      },
+      label: {
+        type: Object,
+        required: true
       }
     },
     methods: {
@@ -53,15 +50,6 @@
           }
         ]
       }
-    },
-    created() {
-      const _self = this
-      getArticlesByType(this.$route.params.id).then(data => {
-        _self.articles = data
-      })
-      getTypeById(this.$route.params.id).then(data => {
-        _self.label = data
-      })
     }
   }
 </script>

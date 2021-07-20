@@ -24,14 +24,12 @@
 </template>
 
 <script>
-  import {
-    getAllLabel
-  } from '@/api/article.js'
   export default {
     name: 'Tag',
-    data() {
-      return {
-        labels: [],
+    props: {
+      labels: {
+        type: Array,
+        required: true
       }
     },
     methods: {
@@ -50,12 +48,6 @@
           }
         ]
       }
-    },
-    created: function() {
-      const _self = this
-      getAllLabel().then(data => {
-        _self.labels = data
-      })
     }
   }
 </script>

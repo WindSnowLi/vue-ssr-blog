@@ -31,9 +31,10 @@
   import ArticleType from './ArticleType'
   export default {
     name: 'categories',
-    data() {
-      return {
-        labels: [],
+    props: {
+      labels: {
+        type: Array,
+        required: true
       }
     },
     methods: {
@@ -52,12 +53,6 @@
           }
         ]
       }
-    },
-    created: function() {
-      const _self = this
-      getAllTypeByUserId().then(data => {
-        _self.labels = data
-      })
     }
   }
 </script>

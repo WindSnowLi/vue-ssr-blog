@@ -9,6 +9,9 @@
   import PageTitle from './PageTitle'
   export default {
     name: 'ArticleTag',
+    components: {
+      PageTitle
+    },
     props: {
       articles: {
         type: Array,

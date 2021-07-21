@@ -19,21 +19,21 @@
       return {
         title: this.user.nickname + '的个人博客',
         meta: [{
-            name: 'keywords',
-            content: this.user.nickname + '的个人博客'
-          },
-          {
-            name: 'author',
-            content: this.user.nickname
-          },
-          {
-            name: 'robots',
-            content: 'index,follow'
-          },
-          {
-            name: 'description',
-            content: this.user.nickname + '的个人博客'
-          }
+          name: 'keywords',
+          content: this.user.nickname + '的个人博客'
+        },
+        {
+          name: 'author',
+          content: this.user.nickname
+        },
+        {
+          name: 'robots',
+          content: 'index,follow'
+        },
+        {
+          name: 'description',
+          content: this.user.nickname + '的个人博客'
+        }
         ]
       }
     },

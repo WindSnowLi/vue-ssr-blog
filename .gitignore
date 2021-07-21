@@ -79,6 +79,8 @@ dist
 
 # IDE / Editor
 .idea
+.vscode
+.vs
 
 # Service worker
 sw.*
@@ -88,5 +90,3 @@ sw.*
 
 # Vim swap files
 *.swp
-
-.vscode/*

@@ -10,9 +10,9 @@
               class="d-flex align-items-center justify-content-center"
               v-bind:style="{ backgroundImage: 'url(' + label.coverPic + ')' }">
               <div class="cat-title" style="text-align:center">
-                <fa :icon="['fas', 'tag']" /></i>&ensp;{{label.name}}（{{label.num}}）
+                <fa :icon="['fas', 'tag']" />&ensp;{{label.name}}（{{label.num}}）
                 <br>
-                <fa :icon="['fas', 'eye']" /></i>&ensp;{{label.visitsCount}}
+                <fa :icon="['fas', 'eye']" />&ensp;{{label.visitsCount}}
               </div>
             </nuxt-link>
           </div>

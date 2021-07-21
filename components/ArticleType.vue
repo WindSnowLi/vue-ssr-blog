@@ -6,13 +6,12 @@
 </template>
 
 <script>
-  import {
-    getArticlesByType,
-    getTypeById
-  } from '@/api/article.js'
   import PageTitle from './PageTitle'
   export default {
     name: 'ArticleType',
+    components: {
+      PageTitle
+    },
     props: {
       articles: {
         type: Array,

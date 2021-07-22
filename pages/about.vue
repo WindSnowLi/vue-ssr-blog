@@ -1,22 +1,26 @@
 <template>
-  <home-page :user="user"></home-page>
+  <about-me :content="uiConfig.about"></about-me>
 </template>
 
 <script>
   import {
-    findUserByUserId
+    findUserByUserId,
+    getConfigByUserId
   } from '@/api/article.js'
   export default {
-    asyncData() {
-      return findUserByUserId().then(res => {
-        return {
-          user: res
-        }
-      })
+    async asyncData() {
+      let [user, uiConfig] = await Promise.all([
+        findUserByUserId(),
+        getConfigByUserId(1)
+      ])
+      return {
+        user,
+        uiConfig
+      }
     },
     head() {
       return {
-        title: this.user.nickname + '的个人博客',
+        title: '关于' + this.user.nickname,
         meta: [{
           name: 'keywords',
           content: this.user.nickname + '的个人博客'
@@ -24,10 +28,6 @@
         {
           name: 'author',
           content: this.user.nickname
-        },
-        {
-          name: 'robots',
-          content: 'index,follow'
         },
         {
           name: 'description',

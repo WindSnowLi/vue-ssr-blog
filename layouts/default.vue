@@ -35,18 +35,14 @@
           background_list: [],
           footer: "",
           main_title: "",
-          topbar_title: ""
+          topbar_title: "",
+          about: ""
         }
       }
     },
-    methods: {
-      getConfigByUserId: function(callback) {
-        getConfigByUserId(callback)
-      }
-    },
-    created: function() {
+    created() {
       const _self = this
-      getConfigByUserId().then(function(data) {
+      getConfigByUserId(1).then(data => {
         _self.uiConfig = data
         let imgs = (data.background_list + '\n\n').split('\n')
         let imgList = []

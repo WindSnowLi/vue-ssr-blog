@@ -1,7 +1,8 @@
 import request from '../utils/request.js';
 
 /**
- * 获取所有文章*/
+ * 获取所有文章
+ */
 export function getArticlesByPage(page, limit) {
   request({
     url: '/article/getArticlesByPage',
@@ -15,7 +16,8 @@ export function getArticlesByPage(page, limit) {
 }
 
 /**
- * 获取最近文章*/
+ * 获取最近文章
+ */
 export function getRecentArticles() {
   return request({
     url: '/article/getArticlesByPage',
@@ -32,7 +34,7 @@ export function getRecentArticles() {
  * 分页获取文章
  * @param {*} page 页
  * @param {*} limit 每页大小
- * @param {*}  成功回调*/
+*/
 export function getHistoryArticles(userId, page, limit) {
   return request({
     url: '/article/getArticlesByPage',
@@ -80,7 +82,7 @@ export function getAllTypeByUserId() {
 /**
  * 获取用户页面配置
  */
-export function getConfigByUserId(id) {
+export function getConfigByUserId(_id) {
   return request({
     url: '/sys/getConfigByUserId',
     method: 'post',
@@ -175,7 +177,6 @@ export function getLabelById(id) {
 /**
 * 通过标签ID获取标签所属文章
 * @param {*} id 标签ID
-
 */
 export function getArticlesByLabel(id) {
   return request({

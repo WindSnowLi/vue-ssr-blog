@@ -24,6 +24,9 @@
                 <li class="navbar-brand">
                   <nuxt-link :to="{ name: 'article-tag' }">标签</nuxt-link>
                 </li>
+                <li class="navbar-brand">
+                  <nuxt-link :to="{ name: 'about' }">关于</nuxt-link>
+                </li>
               </ul>
             </div>
             <!-- End of Nav Menu -->

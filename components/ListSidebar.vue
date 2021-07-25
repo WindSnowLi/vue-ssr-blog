@@ -7,7 +7,8 @@
     <!-- End of Section title -->
     <div class="post-blog-list">
       <!-- Post -->
-      <div class="post-default post-has-right-thumb panel" :value="item" :key="i" v-for="(item,i) in articles">
+      <div :class='[item.article.coverPic == ""?"post-has-no-thumb":"post-has-right-thumb","post-default", "panel" ]'
+        :value="item" :key="i" v-for="(item,i) in articles">
         <div class="d-flex flex-wrap">
           <div class="post-thumb  panel">
             <nuxt-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
@@ -56,7 +57,6 @@
         </div>
       </div>
       <!-- End of Post -->
-
     </div>
   </section>
 </template>

@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=development nuxt",
-    "start": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=production nuxt start",
-    "build": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=production nuxt build",
-    "test": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=production nuxt generate",
-    "generate": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=production nuxt generate"
+    "dev": "cross-env BASE_URL=https://www.blog.firstmeet.xyz/api NODE_ENV=development nuxt",
+    "start": "cross-env BASE_URL=https://www.blog.firstmeet.xyz/api NODE_ENV=production nuxt start",
+    "build": "cross-env BASE_URL=https://www.blog.firstmeet.xyz/api NODE_ENV=production nuxt build",
+    "test": "cross-env BASE_URL=https://www.blog.firstmeet.xyz/api NODE_ENV=production nuxt generate",
+    "generate": "cross-env BASE_URL=https://www.blog.firstmeet.xyz/api NODE_ENV=production nuxt generate"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.3",

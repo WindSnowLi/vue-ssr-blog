@@ -8,6 +8,7 @@
     getAllTypeByUserId
   } from '@/api/article.js'
   export default {
+    layout: 'index',
     async asyncData() {
       let [user, labels] = await Promise.all([
         findUserByUserId(),

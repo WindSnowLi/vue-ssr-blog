@@ -8,6 +8,7 @@
     getConfigByUserId
   } from '@/api/article.js'
   export default {
+    layout: 'index',
     async asyncData() {
       let [user, uiConfig] = await Promise.all([
         findUserByUserId(),

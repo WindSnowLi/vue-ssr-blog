@@ -9,6 +9,7 @@
     getLabelById,
   } from '@/api/article.js'
   export default {
+    layout: 'index',
     async asyncData({
       params
     }) {

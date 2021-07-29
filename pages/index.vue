@@ -7,6 +7,7 @@
     findUserByUserId
   } from '@/api/article.js'
   export default {
+    layout: 'index',
     asyncData() {
       return findUserByUserId().then(res => {
         return {

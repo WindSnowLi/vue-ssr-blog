@@ -5,8 +5,7 @@
         <div class="col-md-4 text-center text-md-left order-md-1 order-2">
           <div class="footer-social">
             <div v-if="security" class="flex-row text-center">
-              <a style="color: #000000;" target="_blank"
-                href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41162502150055">
+              <a style="color: #000000;" target="_blank" :href="getSecurity(security)">
                 <img src="https://www.firstmeet.xyz/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" />
                 {{ security }}
               </a>
@@ -32,6 +31,11 @@
       },
       security: {
         type: String
+      }
+    },
+    methods: {
+      getSecurity(security) {
+        return "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" + security.match(/\b.*\b/)
       }
     }
   }

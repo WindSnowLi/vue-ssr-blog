@@ -13,6 +13,7 @@
     <main>
       <nuxt />
     </main>
+    <footer-line :icp="uiConfig.filing_icp" :security="uiConfig.filing_security"></footer-line>
     <back-top></back-top>
   </div>
 </template>
@@ -21,13 +22,17 @@
   import {
     getConfigByUserId
   } from '@/api/article.js'
-  import { background } from '@/plugins/js/background.js'
+  import {
+    background
+  } from '@/plugins/js/background.js'
   import HeaderBar from '@/components/HeaderBar'
   import BackTop from '@/components/BackTop'
+  import FooterLine from '@/components/FooterLine'
   export default {
     components: {
       HeaderBar,
-      BackTop
+      BackTop,
+      FooterLine
     },
     data() {
       return {
@@ -36,7 +41,9 @@
           footer: "",
           main_title: "",
           topbar_title: "",
-          about: ""
+          about: "",
+          filing_icp: "",
+          filing_security: ""
         }
       }
     },

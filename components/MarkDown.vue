@@ -1,26 +1,17 @@
 <template>
-  <div class="markdown-body" v-html="toMarkDown(md)" v-highlight></div>
+  <div class="markdown-body">
+    <mavon-editor :value="md" :subfield="false" :defaultOpen="'preview'" :toolbarsFlag="false" :editable="false"
+      :scrollStyle="true" :ishljs="true" />
+  </div>
 </template>
 
 <script>
-  import highlight from '../directive/highlight'
   export default {
     name: 'MarkDown',
-    directives: {
-      highlight
-    },
     props: {
       md: {
         type: String,
         required: true
-      }
-    },
-    methods: {
-      toMarkDown(text) {
-        var showdown = require('showdown'),
-          converter = new showdown.Converter()
-        var hljs = require('highlight.js');
-        return converter.makeHtml(text)
       }
     }
   }

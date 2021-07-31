@@ -8,7 +8,7 @@
       </ul>
     </section>
     <!-- Header -->
-    <header-bar :topbar-title="uiConfig.topbar_title"></header-bar>
+    <header-bar :topbar-title="uiConfig.topbar_title" :admin-page="uiConfig.admin_url"></header-bar>
     <!-- End of Header -->
     <main>
       <nuxt />
@@ -43,7 +43,8 @@
           topbar_title: "",
           about: "",
           filing_icp: "",
-          filing_security: ""
+          filing_security: "",
+          admin_url: ""
         }
       }
     },

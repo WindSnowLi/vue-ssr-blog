@@ -16,16 +16,19 @@
             <div class="nav-menu-cover">
               <ul class="nav nav-menu">
                 <li class="navbar-brand">
-                  <nuxt-link :to="{ name: 'index' }">首页</nuxt-link>
+                  <nuxt-link class="fs-23" :to="{ name: 'index' }">首页</nuxt-link>
                 </li>
                 <li class="navbar-brand">
-                  <nuxt-link :to="{ name: 'article-type' }">分类</nuxt-link>
+                  <nuxt-link class="fs-23" :to="{ name: 'article-type' }">分类</nuxt-link>
                 </li>
                 <li class="navbar-brand">
-                  <nuxt-link :to="{ name: 'article-tag' }">标签</nuxt-link>
+                  <nuxt-link class="fs-23" :to="{ name: 'article-tag' }">标签</nuxt-link>
                 </li>
                 <li class="navbar-brand">
-                  <nuxt-link :to="{ name: 'about' }">关于</nuxt-link>
+                  <nuxt-link class="fs-23" :to="{ name: 'about' }">关于</nuxt-link>
+                </li>
+                <li class="navbar-brand" v-if="adminPage">
+                  <a class="fs-23" :href="adminPage">后台</a>
                 </li>
               </ul>
             </div>
@@ -34,11 +37,6 @@
             <!-- Mobile Menu -->
             <div class="mobile-menu-cover">
               <ul class="nav mobile-nav-menu">
-                <!--
-                              <li class="search-toggle-open">
-                                  <img src="/images/search-icon.svg" alt="" class="img-fluid svg">
-                              </li>
-                          -->
                 <li class="search-toggle-close hide">
                   <img src="/images/close.svg" alt="" class="img-fluid">
                 </li>
@@ -58,14 +56,21 @@
 <script>
   export default {
     name: 'HeaderBars',
-    data() {
-      return {}
-    },
     props: {
       topbarTitle: {
+        type: String,
+        default: ''
+      },
+      adminPage: {
         type: String,
         default: ''
       }
     }
   }
 </script>
+
+<style scoped>
+  .fs-23 {
+    font-size: 23px;
+  }
+</style>

@@ -1,3 +1,6 @@
+/**
+ * 原源码详情链接：https://github.com/PanJiaChen/vue-element-admin/blob/master/src/utils/request.js
+ */
 import axios from 'axios'
 
 // create an axios instance

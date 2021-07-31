@@ -4,11 +4,12 @@
     <div class="widget-content">
       <!-- 作者图片 -->
       <div class="author-image">
-        <img :src="user.avatar" alt="" class="img-fluid">
+        <nuxt-link :to="{ name: 'about' }"><img :src="user.avatar" alt="" class="img-fluid"></nuxt-link>
       </div>
+
       <!-- 作者名字 -->
       <div class="author-name text-center">
-        <a href="#"> {{ user.nickname }} </a>
+        <nuxt-link :to="{ name: 'about' }">{{ user.nickname }}</nuxt-link>
       </div>
 
       <!-- 作者介绍 -->

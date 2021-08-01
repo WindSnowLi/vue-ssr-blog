@@ -15,6 +15,7 @@
     </main>
     <footer-line :icp="uiConfig.filing_icp" :security="uiConfig.filing_security"></footer-line>
     <back-top></back-top>
+    <div v-if="uiConfig.footer" v-append="uiConfig.footer"></div>
   </div>
 </template>
 

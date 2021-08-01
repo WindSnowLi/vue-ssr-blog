@@ -23,7 +23,8 @@
     "jquery": "^3.6.0",
     "mavon-editor": "^2.9.1",
     "nuxt": "^2.15.7",
-    "nuxt-fontawesome": "^0.4.0"
+    "nuxt-fontawesome": "^0.4.0",
+    "vue-append": "^2.0.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"

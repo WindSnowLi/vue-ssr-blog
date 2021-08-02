@@ -1,22 +1,22 @@
 <template>
-  <about-me :content="uiConfig.about"></about-me>
+  <about-me :content="about"></about-me>
 </template>
 
 <script>
   import {
-    findUserByUserId,
-    getConfigByUserId
-  } from '@/api/article.js'
+    getAboutByUserId,
+    findUserByUserId
+  } from '@/api/user.js'
   export default {
     layout: 'index',
     async asyncData() {
-      let [user, uiConfig] = await Promise.all([
+      let [user, about] = await Promise.all([
         findUserByUserId(),
-        getConfigByUserId(1)
+        getAboutByUserId()
       ])
       return {
         user,
-        uiConfig
+        about
       }
     },
     head() {

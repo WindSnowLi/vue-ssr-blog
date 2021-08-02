@@ -5,7 +5,7 @@
 <script>
   import {
     findUserByUserId
-  } from '@/api/article.js'
+  } from '@/api/user.js'
   export default {
     layout: 'index',
     asyncData() {

@@ -8,12 +8,12 @@
       </ul>
     </section>
     <!-- Header -->
-    <header-bar :topbar-title="uiConfig.topbar_title" :admin-page="uiConfig.admin_url"></header-bar>
+    <header-bar :topbar-title="uiConfig.topbar_title" :admin-page="sysConfig.admin_url"></header-bar>
     <!-- End of Header -->
     <main>
       <nuxt />
     </main>
-    <footer-line :icp="uiConfig.filing_icp" :security="uiConfig.filing_security"></footer-line>
+    <footer-line :icp="sysConfig.filing_icp" :security="sysConfig.filing_security"></footer-line>
     <back-top></back-top>
     <div v-if="uiConfig.footer" v-append="uiConfig.footer"></div>
   </div>
@@ -21,8 +21,9 @@
 
 <script>
   import {
-    getConfigByUserId
-  } from '@/api/article.js'
+    getUiConfig,
+    getSysConfig
+  } from '@/api/sys.js'
   import {
     background
   } from '@/plugins/js/background.js'
@@ -37,23 +38,15 @@
     },
     data() {
       return {
-        uiConfig: {
-          background_list: [],
-          footer: "",
-          main_title: "",
-          topbar_title: "",
-          about: "",
-          filing_icp: "",
-          filing_security: "",
-          admin_url: ""
-        }
+        uiConfig: {},
+        sysConfig: {}
       }
     },
     created() {
       const _self = this
-      getConfigByUserId(1).then(data => {
-        _self.uiConfig = data
-        let imgs = (data.background_list + '\n\n').split('\n')
+      getUiConfig().then(response => {
+        _self.uiConfig = response
+        let imgs = (_self.uiConfig.background_list + '\n\n').split('\n')
         let imgList = []
         imgs.forEach(element => {
           if (Object.keys(element).length != 0) {
@@ -62,6 +55,9 @@
         });
         _self.uiConfig.background_list = imgList
         background(_self.uiConfig.background_list, 'background-list')
+      })
+      getSysConfig().then(response => {
+        _self.sysConfig = response.sys
       })
     }
   }

@@ -4,9 +4,11 @@
 
 <script>
   import {
-    findUserByUserId,
     getAllTypeByUserId
   } from '@/api/article.js'
+  import {
+    findUserByUserId
+  } from '@/api/user.js'
   export default {
     layout: 'index',
     async asyncData() {

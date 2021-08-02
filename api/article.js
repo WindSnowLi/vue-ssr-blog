@@ -80,32 +80,6 @@ export function getAllTypeByUserId() {
 }
 
 /**
- * 获取用户页面配置
- */
-export function getConfigByUserId(_id) {
-  return request({
-    url: '/sys/getConfigByUserId',
-    method: 'post',
-    data: {
-      id: 1
-    }
-  })
-}
-
-/**
- * 通过用户ID获取信息
- */
-export function findUserByUserId() {
-  return request({
-    url: '/user/visitorGetAuthorInfo',
-    method: 'post',
-    data: {
-      id: 1
-    }
-  })
-}
-
-/**
  * 获取访问最多的文章
  */
 export function getMostVisits() {

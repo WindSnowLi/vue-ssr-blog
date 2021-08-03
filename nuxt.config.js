@@ -1,3 +1,5 @@
+import cheerio from 'cheerio'
+
 export default {
   server: {
     port: 3000, // default: 3000
@@ -102,5 +104,13 @@ export default {
   env: {
     BASE_URL: process.env.BASE_URL,
     NODE_ENV: process.env.NODE_ENV
+  },
+  hooks: {
+    // 删除meta信息的无关标签（为了百度验证）
+    'render:route': (url, result) => {
+      const $ = cheerio.load(result.html, { decodeEntities: false })
+      $(`meta`).removeAttr('data-n-head')
+      result.html = $.html()
+    }
   }
 }

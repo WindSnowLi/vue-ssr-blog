@@ -27,10 +27,6 @@
           content: this.user.nickname
         },
         {
-          name: 'robots',
-          content: 'index,follow'
-        },
-        {
           name: 'description',
           content: this.user.nickname + '的个人博客'
         }

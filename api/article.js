@@ -158,8 +158,8 @@ export function getArticlesByLabel(id) {
     method: 'post',
     data: {
       id: id,
-      start: 0,
-      end: 100
+      limit: 100,
+      page: 1
     }
   })
 }

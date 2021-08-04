@@ -171,10 +171,10 @@
 }
 
 .panel:hover {
-    box-shadow: 0px 0px 50px black;
-    -webkit-box-shadow: 0px 0px 50px black;
-    -moz-box-shadow: 0px 0px 50px black;
-    -o-box-shadow: 0px 0px 50px black
+    box-shadow: 0 0 50px black;
+    -webkit-box-shadow: 0 0 50px black;
+    -moz-box-shadow: 0 0 50px black;
+    -o-box-shadow: 0 0 50px black
 }
 
 /* 半透明结束 */

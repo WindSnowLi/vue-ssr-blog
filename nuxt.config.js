@@ -12,8 +12,8 @@ export default {
       lang: 'en'
     },
     meta: [{
-        charset: 'utf-8'
-      },
+      charset: 'utf-8'
+    },
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
@@ -37,13 +37,13 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{
     src: "mavon-editor/dist/css/index.css"
-  }, ],
+  },],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{
-      src: '~/plugins/font-awesome.js',
-      ssr: false
-    },
+    src: '~/plugins/font-awesome.js',
+    ssr: false
+  },
     {
       src: '~/plugins/magnific-popup/jquery.magnific-popup.min.js',
       ssr: false
@@ -81,9 +81,9 @@ export default {
   fontawesome: {
     component: 'fa',
     imports: [{
-        set: '@fortawesome/free-solid-svg-icons',
-        icons: ['fas']
-      },
+      set: '@fortawesome/free-solid-svg-icons',
+      icons: ['fas']
+    },
       {
         set: '@fortawesome/free-regular-svg-icons',
         icons: ['far']

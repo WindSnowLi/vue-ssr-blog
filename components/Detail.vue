@@ -11,7 +11,7 @@
               <div class="post-meta-info">
                 <!-- 标题 -->
                 <div class="title" style="margin-top: 45px;">
-                  <h2>{{articleDetail.article.title}}</h2>
+                  <h1>{{articleDetail.article.title}}</h1>
                 </div>
                 <!-- 类别 -->
                 <p class="cats">
@@ -40,9 +40,7 @@
             <!-- 封面介绍结束 -->
             <br>
             <!-- Post Content -->
-            <div class="markdown-body">
-              <mark-down v-bind:md="articleDetail.article.content"></mark-down>
-            </div>
+            <mark-down :md="articleDetail.article.content"></mark-down>
             <!-- End of Post Content -->
 
             <!-- 标签 -->
@@ -68,10 +66,6 @@
 </template>
 
 <script>
-  import MySidebar from './MySidebar'
-  import MarkDown from './MarkDown'
-  import PageTitle from './PageTitle'
-
   export default {
     name: 'Detail',
     props: {
@@ -101,20 +95,20 @@
             }
           },
           {
-            title: this.articleDetail.article.articleType.name,
+            title: article.articleType.name,
             to: {
               name: 'article-type-id',
               params: {
-                id: this.articleDetail.article.articleType.id
+                id: article.articleType.id
               }
             }
           },
           {
-            title: this.articleDetail.article.title,
+            title: article.title,
             to: {
               name: 'article-detail-id',
               params: {
-                id: this.articleDetail.article.id
+                id: article.id
               }
             }
           }

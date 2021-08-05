@@ -1,7 +1,7 @@
 <template>
   <div class="container pt-120 pb-90">
     <div class="row">
-      <div class="col-md-4 col-sm-6 panel" :value="article" :key="i" v-for="(article,i) in articles">
+      <div class="col-md-4 col-sm-6 panel wow bounceInDown fadeIn" :value="article" :key="i" v-for="(article,i) in articles">
         <!-- 文章 -->
         <div class="post-default">
           <div class="post-thumb">
@@ -35,12 +35,23 @@
 </template>
 
 <script>
+  import 'animate.css'
+  if (process.browser) { // 在这里根据环境引入wow.js
+    var {WOW} = require('wowjs')
+  }
   export default {
     name: 'BlogGrid3',
     props: {
       articles: {
         type: Array,
         required: true
+      }
+    },
+    watch: {
+      articles() {
+        this.$nextTick(() => { // 在dom渲染完后,再执行动画
+         		new WOW().init()
+        })
       }
     }
   }

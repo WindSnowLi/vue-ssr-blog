@@ -7,7 +7,7 @@
         <!-- 最近热门结束  -->
 
         <!-- 历史记录 -->
-        <list-sidebar title="历史记录" v-bind:articles="historyArticles"></list-sidebar>
+        <list-sidebar title="历史记录" :articles="historyArticles"></list-sidebar>
         <!-- 历史记录结束 -->
 
         <!-- 分页 -->
@@ -15,7 +15,7 @@
         <!-- 分页结束 -->
       </div>
       <!-- 侧边栏信息 -->
-      <my-sidebar v-bind:user="user" v-bind:most-visits="mostVisits" v-bind:labels="labels"></my-sidebar>
+      <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels"></my-sidebar>
       <!-- 侧边栏信息结束 -->
     </div>
   </div>
@@ -26,12 +26,12 @@
     getHistoryArticles,
     getRecentArticles,
     getMostVisits,
-    findUserByUserId,
     getAllLabel
   } from '@/api/article.js'
   import ListSidebar from './ListSidebar'
   import paging from './paging'
   import MySidebar from './MySidebar'
+
   export default {
     name: 'HomePage',
     components: {
@@ -41,19 +41,28 @@
     },
     data() {
       return {
-        recentArticles: [],
         total: 0,
         page: 1,
         limit: 9,
-        historyArticles: [],
-        labels: [],
-        mostVisits: []
+        historyArticles: []
       }
     },
     props: {
       user: {
         type: Object,
         required: true,
+      },
+      mostVisits: {
+        type: Array,
+        required: true
+      },
+      labels: {
+        type: Array,
+        required: true
+      },
+      recentArticles: {
+        type: Array,
+        required: true
       }
     },
     methods: {
@@ -67,19 +76,7 @@
       }
     },
     created() {
-      const _self = this
-      getRecentArticles().then(data => {
-        _self.recentArticles = data.items
-      })
       this.getHistoryArticles(this.page)
-      // 最多访问量侧边栏
-      getMostVisits().then(data => {
-        _self.mostVisits = data
-      })
-      // 所有标签
-      getAllLabel().then(data => {
-        _self.labels = data
-      })
     }
   }
 </script>

@@ -36,7 +36,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{
-    src: "mavon-editor/dist/css/index.css"
+    src: "mavon-editor/dist/css/index.css",
+    src: "animate.css/animate.css"
   },],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

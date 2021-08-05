@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /* *******************
  *
  * Template name:  BizBlog
@@ -1899,7 +1899,7 @@ body {
 .post-default.post-has-no-thumb {
   background-color: #fff;
   padding: 40px 40px 35px 40px;
-  min-height: 297.5px;
+  /* min-height: 297.5px; */
 }
 
 @media only screen and (max-width: 575px) {

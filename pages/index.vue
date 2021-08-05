@@ -1,19 +1,37 @@
 <template>
-  <home-page :user="user"></home-page>
+  <home-page
+    :user="user"
+    :most-visits="mostVisits"
+    :labels="labels"
+    :recent-articles="recentArticles"
+  >
+  </home-page>
 </template>
 
 <script>
   import {
     findUserByUserId
   } from '@/api/user.js'
+  import {
+    getRecentArticles,
+    getMostVisits,
+    getAllLabel
+  } from '@/api/article.js'
   export default {
     layout: 'index',
-    asyncData() {
-      return findUserByUserId().then(res => {
-        return {
-          user: res
-        }
-      })
+    async asyncData() {
+      let [user, mostVisits, labels, recentArticles] = await Promise.all([
+        findUserByUserId(),
+        getMostVisits(),
+        getAllLabel(),
+        getRecentArticles()
+      ])
+      return {
+        user,
+        mostVisits,
+        labels,
+        recentArticles: recentArticles.items
+      }
     },
     head() {
       return {

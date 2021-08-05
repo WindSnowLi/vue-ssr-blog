@@ -7,7 +7,7 @@
     <!-- End of Section title -->
     <div class="post-blog-list">
       <!-- Post -->
-      <div :class='[item.article.coverPic == ""?"post-has-no-thumb":"post-has-right-thumb","post-default", "panel" ]'
+      <div :class='[item.article.coverPic == ""?"post-has-no-thumb":"post-has-right-thumb","post-default", "panel", "wow", "bounceInDown fadeIn"]'
         :value="item" :key="i" v-for="(item,i) in articles">
         <div class="d-flex flex-wrap">
           <div class="post-thumb  panel">
@@ -62,6 +62,10 @@
 </template>
 
 <script>
+  import 'animate.css'
+  if (process.browser) { // 在这里根据环境引入wow.js
+    var {WOW} = require('wowjs')
+  }
   export default {
     name: 'ListSidebar',
     props: {
@@ -73,6 +77,13 @@
       title: {
         type: String,
         required: false
+      }
+    },
+    watch: {
+      articles() {
+        this.$nextTick(() => { // 在dom渲染完后,再执行动画
+         		new WOW().init()
+        })
       }
     }
   }

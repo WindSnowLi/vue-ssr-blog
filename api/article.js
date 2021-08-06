@@ -32,9 +32,10 @@ export function getRecentArticles() {
 
 /**
  * 分页获取文章
+ * @param userId 用户ID
  * @param {*} page 页
  * @param {*} limit 每页大小
-*/
+ */
 export function getHistoryArticles(userId, page, limit) {
   return request({
     url: '/article/getArticlesByPage',
@@ -149,9 +150,9 @@ export function getLabelById(id) {
 }
 
 /**
-* 通过标签ID获取标签所属文章
-* @param {*} id 标签ID
-*/
+ * 通过标签ID获取标签所属文章
+ * @param {*} id 标签ID
+ */
 export function getArticlesByLabel(id) {
   return request({
     url: '/article/getArticlesByLabel',
@@ -160,6 +161,22 @@ export function getArticlesByLabel(id) {
       id: id,
       limit: 100,
       page: 1
+    }
+  })
+}
+
+/**
+ * 分页获取文章ID列表
+ * @param {*} page 页
+ * @param {*} limit 每页大小
+ */
+export function getArticleIdByPage(page, limit) {
+  return request({
+    url: '/article/getArticleIdByPage',
+    method: 'post',
+    data: {
+      limit,
+      page
     }
   })
 }

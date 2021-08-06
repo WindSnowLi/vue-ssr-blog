@@ -1,4 +1,5 @@
 import cheerio from 'cheerio'
+import sitemap from "./config/sitemap";
 
 export default {
   server: {
@@ -35,10 +36,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [{
-    src: "mavon-editor/dist/css/index.css",
-    src: "animate.css/animate.css"
-  },],
+  css: [
+    "mavon-editor/dist/css/index.css",
+    "animate.css/animate.css"
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [{
@@ -78,6 +79,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     'nuxt-fontawesome',
+    '@nuxtjs/sitemap'
   ],
   fontawesome: {
     component: 'fa',
@@ -109,9 +111,10 @@ export default {
   hooks: {
     // 删除meta信息的无关标签（为了百度验证）
     'render:route': (url, result) => {
-      const $ = cheerio.load(result.html, { decodeEntities: false })
+      const $ = cheerio.load(result.html, {decodeEntities: false})
       $(`meta`).removeAttr('data-n-head')
       result.html = $.html()
     }
-  }
+  },
+  sitemap: sitemap
 }

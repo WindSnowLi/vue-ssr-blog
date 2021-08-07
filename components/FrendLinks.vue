@@ -4,11 +4,7 @@
     <div class="container pt-120 pb-90">
       <div class="row">
         <div class="link-box cover-oic" :key="index" v-for="(item,index) in frendLinks">
-<<<<<<< HEAD
           <a :href="item.link" target="_blank">
-=======
-          <a href="" target="_blank">
->>>>>>> 7ed2fc0d787b20b7ce15de47e7629b0c4eb47d7f
             <div class="thumb">
               <img :src="item.coverPic" alt="示意图" />
             </div>

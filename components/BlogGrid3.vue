@@ -23,7 +23,7 @@
             <!-- 描述 -->
             <div class="desc">
               <p>
-                {{article.article.summary.substring(0,30)}}···
+                {{article.article.summary.substring(0,50)}}···
               </p>
             </div>
           </div>

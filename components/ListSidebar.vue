@@ -50,7 +50,7 @@
             <!-- Post Desc -->
             <div class="desc">
               <p>
-                {{ item.article.summary.substring(0,30)}}...
+                {{ item.article.summary.substring(0,50)}}...
               </p>
             </div>
           </div>

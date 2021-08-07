@@ -25,6 +25,9 @@
                   <nuxt-link class="fs-23" :to="{ name: 'article-tag' }">标签</nuxt-link>
                 </li>
                 <li class="navbar-brand">
+                  <nuxt-link class="fs-23" :to="{ name: 'links' }">友链</nuxt-link>
+                </li>
+                <li class="navbar-brand">
                   <nuxt-link class="fs-23" :to="{ name: 'about' }">关于</nuxt-link>
                 </li>
                 <li class="navbar-brand" v-if="adminPage">

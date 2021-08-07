@@ -11,7 +11,7 @@
         <!-- 历史记录结束 -->
 
         <!-- 分页 -->
-        <paging :total="total" :page="page" :jump="getHistoryArticles"></paging>
+        <paging :total="total" :jump="getHistoryArticles" :limit="limit"></paging>
         <!-- 分页结束 -->
       </div>
       <!-- 侧边栏信息 -->
@@ -42,7 +42,6 @@
     data() {
       return {
         total: 0,
-        page: 1,
         limit: 9,
         historyArticles: []
       }
@@ -69,14 +68,13 @@
       getHistoryArticles(page) {
         const _self = this
         getHistoryArticles(1, page, _self.limit).then(data => {
-          _self.page = page
           _self.historyArticles = data.items
-          _self.total = Math.ceil(data.total * 1.0 / _self.limit)
+          _self.total = data.total
         })
       }
     },
     created() {
-      this.getHistoryArticles(this.page)
+      this.getHistoryArticles(1)
     }
   }
 </script>

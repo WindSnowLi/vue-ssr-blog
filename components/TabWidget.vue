@@ -1,19 +1,12 @@
 <template>
-  <div class="widget widget-tag-cloud panel">
+  <div class="widget text-center panel">
     <!-- 组件标题 -->
     <h4 class="widget-title">
       标签
     </h4>
     <!-- 组件标题结束 -->
-
     <!-- 组件内容 -->
-    <div class="widget-content tagcloud">
-      <router-link :value="label" :key="i" v-for="(label,i) in labels"
-        :to="{ name:'article-tag-id',params:{ id: label.id } }">
-        <fa :icon="['fas', 'tag']" />
-        {{label.name}}
-      </router-link>
-    </div>
+    <tag-cloud :labels="tags" :tags-num="this.tags.length"></tag-cloud>
     <!-- 组件内容结束 -->
   </div>
 </template>
@@ -26,6 +19,32 @@
         type: Array,
         required: true
       }
+    },
+    data() {
+      return {
+        tags: []
+      }
+    },
+    created() { //初始化标签位置
+      let tags = []
+      for (let i = 0; i < this.labels.length; i++) {
+        let tag = {
+          name: this.labels[i].name,
+          link: {
+            name: 'article-tag-id',
+            params: {
+              id: this.labels[i].id
+            }
+          }
+        }
+        tags.push(tag)
+      }
+      this.tags = tags
     }
   }
 </script>
+<style scoped>
+  /deep/ svg>a>text {
+    fill: currentcolor;
+  }
+</style>

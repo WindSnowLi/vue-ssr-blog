@@ -1,19 +1,6 @@
 <template>
-  <!--  <div class="post-pagination d-flex justify-content-center panel">
-    <a href="javascript:void(0)" v-if="page > 1" @click="jump(page - 1)">
-      <fa :icon="['fas', 'angle-left']" />
-    </a>
-    <template v-for="index of total">
-      <span :value="index" :key="index" v-if="index === page" class="current">{{index}}</span>
-      <a href="javascript:void(0)" :value="index" :key="index" v-else @click="jump(index)">{{index}}</a>
-    </template>
-    <a href="javascript:void(0)" v-if="page < total" @click="jump(page + 1)">
-      <fa :icon="['fas', 'angle-right']" />
-    </a> -->
   <b-pagination class="justify-content-center" v-model="currentPage" :total-rows="total" :per-page="limit" first-number last-number size="lg">
   </b-pagination>
-
-  <!-- </div> -->
 </template>
 
 <script>

@@ -46,12 +46,11 @@
             <!-- 标签 -->
             <div class="post-all-tags">
               <template v-for="(label,i) in articleDetail.article.labels">
-                <nuxt-link :value="label" :key="i" :to="{ name: 'article-tag-id', params: { id: label.id } }">
+                <nuxt-link class="badge badge-info" :value="label" :key="i" :to="{ name: 'article-tag-id', params: { id: label.id } }">
                   <fa :icon="['fas', 'tag']" />
                   {{label.name}}
                 </nuxt-link>
               </template>
-
             </div>
             <!-- 标签结束 -->
           </div>

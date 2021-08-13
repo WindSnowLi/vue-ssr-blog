@@ -3,7 +3,7 @@
     <page-title :routeList="getPageTitle(articleDetail.article)"></page-title>
     <div class="container pt-40 pb-90">
       <div class="row">
-        <div class="col-lg-8 pb-80 panel">
+        <div class="col-lg-8 pb-80 panel" style="margin-bottom: auto">
           <div class="post-details-cover">
             <!-- 封面介绍结束 -->
             <div class="post-thumb-cover" style="text-align: center;">
@@ -11,13 +11,13 @@
               <div class="post-meta-info">
                 <!-- 标题 -->
                 <div class="title" style="margin-top: 45px;">
-                  <h1>{{articleDetail.article.title}}</h1>
+                  <h1 style="font-size: 32px">{{ articleDetail.article.title }}</h1>
                 </div>
                 <!-- 类别 -->
                 <p class="cats">
-                  <fa :icon="['fas', 'list-alt']" />
+                  <fa :icon="['fas', 'list-alt']"/>
                   <nuxt-link :to="{ name: 'article-type-id', params: { id: articleDetail.article.articleType.id } }">
-                    {{articleDetail.article.articleType.name}}
+                    {{ articleDetail.article.articleType.name }}
                   </nuxt-link>
                 </p>
                 <!-- Meta -->
@@ -25,12 +25,12 @@
                   <ul class="nav meta align-items-center">
                     <li class="meta-author">
                       <img :src="articleDetail.user.avatar" alt="" class="img-fluid">
-                      <a href="#">{{articleDetail.user.nickname}}</a>
+                      <a href="#">{{ articleDetail.user.nickname }}</a>
                     </li>
-                    <li class="meta-date"><a href="#">{{articleDetail.article.createTime}}</a></li>
+                    <li class="meta-date"><a href="#">{{ articleDetail.article.createTime }}</a></li>
                     <li class="meta-date">
-                      <fa :icon="['fas', 'eye']" />
-                      <a href="#">{{articleDetail.article.visitsCount}}</a>
+                      <fa :icon="['fas', 'eye']"/>
+                      <a href="#">{{ articleDetail.article.visitsCount }}</a>
                     </li>
                   </ul>
                 </div>
@@ -46,13 +46,28 @@
             <!-- 标签 -->
             <div class="post-all-tags">
               <template v-for="(label,i) in articleDetail.article.labels">
-                <nuxt-link class="badge badge-info" :value="label" :key="i" :to="{ name: 'article-tag-id', params: { id: label.id } }">
-                  <fa :icon="['fas', 'tag']" />
-                  {{label.name}}
+                <nuxt-link class="badge badge-info" :value="label" :key="i"
+                           :to="{ name: 'article-tag-id', params: { id: label.id } }">
+                  <fa :icon="['fas', 'tag']"/>
+                  {{ label.name }}
                 </nuxt-link>
               </template>
             </div>
             <!-- 标签结束 -->
+            <div v-if="articleDetail.next || articleDetail.pre" class="previous-next-links">
+              <div v-if="articleDetail.pre" class="previous-design-link">
+                <nuxt-link :to="{ name:'article-detail-id',params:{ id: articleDetail.pre.id } }">
+                  <fa :icon="['fas', 'arrow-left']" style="font-size:16px;" aria-hidden="true"/>
+                  {{ articleDetail.pre.title }}
+                </nuxt-link>
+              </div>
+              <div v-if="articleDetail.next" class="next-design-link">
+                <nuxt-link :to="{ name:'article-detail-id',params:{ id: articleDetail.next.id } }">
+                  {{ articleDetail.next.title }}
+                  <fa :icon="['fas', 'arrow-right']" style="font-size:16px;" aria-hidden="true"/>
+                </nuxt-link>
+              </div>
+            </div>
           </div>
         </div>
         <!-- 侧边栏信息 -->
@@ -61,58 +76,81 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
-  export default {
-    name: 'Detail',
-    props: {
-      articleDetail: {
-        type: Object,
-        required: true
-      },
-      user: {
-        type: Object,
-        required: true
-      },
-      labels: {
-        type: Array,
-        required: true
-      },
-      mostVisits: {
-        type: Array,
-        required: true
-      }
+export default {
+  name: 'Detail',
+  props: {
+    articleDetail: {
+      type: Object,
+      required: true
     },
-    methods: {
-      getPageTitle(article) {
-        return [{
-            title: '首页',
-            to: {
-              name: 'index'
-            }
-          },
-          {
-            title: article.articleType.name,
-            to: {
-              name: 'article-type-id',
-              params: {
-                id: article.articleType.id
-              }
-            }
-          },
-          {
-            title: article.title,
-            to: {
-              name: 'article-detail-id',
-              params: {
-                id: article.id
-              }
+    user: {
+      type: Object,
+      required: true
+    },
+    labels: {
+      type: Array,
+      required: true
+    },
+    mostVisits: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    getPageTitle(article) {
+      return [{
+        title: '首页',
+        to: {
+          name: 'index'
+        }
+      },
+        {
+          title: article.articleType.name,
+          to: {
+            name: 'article-type-id',
+            params: {
+              id: article.articleType.id
             }
           }
-        ]
-      }
+        },
+        {
+          title: article.title,
+          to: {
+            name: 'article-detail-id',
+            params: {
+              id: article.id
+            }
+          }
+        }
+      ]
     }
   }
+}
 </script>
+
+<style scoped>
+.previous-next-links {
+  line-height: 24px;
+  overflow: hidden;
+  padding: 10px 20px;
+  font-size: 15px;
+  background-color: rgba(217, 237, 247, 0.8);
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.previous-next-links a {
+  color: #3f51b5;
+}
+
+.previous-design-link {
+  float: left;
+}
+
+.next-design-link {
+  float: right;
+}
+</style>

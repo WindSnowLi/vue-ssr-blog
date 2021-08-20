@@ -2,6 +2,7 @@
  * 原源码详情链接：https://github.com/PanJiaChen/vue-element-admin/blob/master/src/utils/request.js
  */
 import axios from 'axios'
+import {getToken} from "./auth";
 
 // create an axios instance
 const service = axios.create({
@@ -14,6 +15,9 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // do something before request is sent
+    if (getToken()) {
+      config.headers['token'] = getToken()
+    }
     return config
   },
   error => {

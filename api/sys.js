@@ -2,7 +2,7 @@ import request from '../utils/request.js';
 
 /**
  * 获取用户UI配置
- * @param {Int} id 验证信息
+ * @param _id
  */
 export function getUiConfig(_id) {
   return request({
@@ -22,5 +22,15 @@ export function getSysConfig() {
     url: '/sys/getSysConfig',
     method: 'post',
     data: {}
+  })
+}
+
+/**
+ * 获取Gitee的应用程序ID
+ */
+export function getGiteeClientId() {
+  return request({
+    url: '/sys/getGiteeClientId',
+    method: 'post'
   })
 }

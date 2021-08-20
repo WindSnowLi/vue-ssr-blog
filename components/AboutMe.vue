@@ -6,6 +6,7 @@
           <div class="page-text">
             <mark-down v-bind:md="content"></mark-down>
           </div>
+          <comment class="post-details-cover post-all-comments" style="margin-top: 100px" :comments="comments" session-type="ABOUT"></comment>
         </div>
       </div>
     </div>
@@ -13,29 +14,41 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      content: {
-        type: String,
-        default: ''
-      }
-    },
-    methods: {
-      getPageTitle(article) {
-        return [{
-          title: '首页',
-          to: {
-            name: 'index'
-          }
-        },
+import {getTargetComments} from "../api/comment";
+
+export default {
+  props: {
+    content: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      comments: [],
+    }
+  },
+  methods: {
+    getPageTitle(article) {
+      return [{
+        title: '首页',
+        to: {
+          name: 'index'
+        }
+      },
         {
           title: '关于',
           to: {
             name: 'about',
           }
         }
-        ]
-      }
+      ]
     }
+  },
+  created() {
+    getTargetComments('ABOUT', 'PASS', Number(this.$route.params.id)).then(rsp => {
+      this.comments = rsp
+    });
   }
+}
 </script>

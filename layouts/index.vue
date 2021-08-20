@@ -49,7 +49,7 @@
         let imgs = (_self.uiConfig.background_list + '\n\n').split('\n')
         let imgList = []
         imgs.forEach(element => {
-          if (Object.keys(element).length != 0) {
+          if (Object.keys(element).length !== 0) {
             imgList.push(element)
           }
         });

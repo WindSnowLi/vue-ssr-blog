@@ -68,6 +68,8 @@
                 </nuxt-link>
               </div>
             </div>
+            <comment :comments="comments" session-type="ARTICLE" :target-id="Number(this.$route.params.id)"></comment>
+
           </div>
         </div>
         <!-- 侧边栏信息 -->
@@ -79,6 +81,8 @@
 </template>
 
 <script>
+import {getTargetComments} from "../api/comment";
+
 export default {
   name: 'Detail',
   props: {
@@ -97,6 +101,13 @@ export default {
     mostVisits: {
       type: Array,
       required: true
+    }
+  },
+  data() {
+    return {
+      comment: "",
+      comments: [],
+      replyComments: {}
     }
   },
   methods: {
@@ -127,6 +138,11 @@ export default {
         }
       ]
     }
+  },
+  created() {
+    getTargetComments('ARTICLE', 'PASS', Number(this.$route.params.id)).then(rsp => {
+      this.comments = rsp
+    });
   }
 }
 </script>
@@ -153,4 +169,5 @@ export default {
 .next-design-link {
   float: right;
 }
+
 </style>

@@ -30,7 +30,7 @@ export default {
       href: '/favicon.ico'
     }],
     script: [{
-      src: '/js/jquery-1.12.1.min.js',
+      src: '/js/jquery-3.6.0.min.js',
       ssr: false
     }]
   },

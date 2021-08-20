@@ -104,7 +104,7 @@
         evt.preventDefault()
         let keys = Object.keys(this.friendLink)
         for (let i in keys) {
-          if (this.friendLink[keys[i]] == "") {
+          if (this.friendLink[keys[i]] === "") {
             this.inforType = "warning"
             this.showAlert()
             this.infor = "不可存在空项"

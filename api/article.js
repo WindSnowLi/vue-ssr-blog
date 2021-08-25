@@ -10,7 +10,8 @@ export function getArticlesByPage(page, limit) {
     data: {
       userId: 1,
       page: page,
-      limit: limit
+      limit: limit,
+      status: 'PUBLISHED'
     }
   })
 }
@@ -25,7 +26,8 @@ export function getRecentArticles() {
     data: {
       userId: 1,
       page: 1,
-      limit: 3
+      limit: 3,
+      status: 'PUBLISHED'
     }
   })
 }
@@ -43,7 +45,8 @@ export function getHistoryArticles(userId, page, limit) {
     data: {
       userId: userId,
       page: page,
-      limit: limit
+      limit: limit,
+      status: 'PUBLISHED'
     }
   })
 }
@@ -176,7 +179,8 @@ export function getArticleIdByPage(page, limit) {
     method: 'post',
     data: {
       limit,
-      page
+      page,
+      status: 'PUBLISHED'
     }
   })
 }

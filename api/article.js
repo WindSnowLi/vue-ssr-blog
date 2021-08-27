@@ -162,8 +162,10 @@ export function getArticlesByLabel(id) {
     method: 'post',
     data: {
       id: id,
-      limit: 100,
-      page: 1
+      content: {
+        limit: 100,
+        page: 1
+      }
     }
   })
 }

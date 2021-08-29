@@ -23,10 +23,7 @@
 
 <script>
   import {
-    getHistoryArticles,
-    getRecentArticles,
-    getMostVisits,
-    getAllLabel
+    getHistoryArticles
   } from '@/api/article.js'
   import ListSidebar from './ListSidebar'
   import paging from './paging'

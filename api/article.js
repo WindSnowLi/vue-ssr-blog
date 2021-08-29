@@ -52,38 +52,6 @@ export function getHistoryArticles(userId, page, limit) {
 }
 
 /**
- * 获取所有标签*/
-export function getAllLabel() {
-  return request({
-    url: '/articleLabel/getAllLabel',
-    method: 'post'
-  })
-}
-
-/**
- * 获取所有分类
- */
-export function getAllClassify() {
-  return request({
-    url: '/article/getAllClassify',
-    method: 'post'
-  })
-}
-
-/**
- * 获取用户所有分类
- */
-export function getAllTypeByUserId() {
-  return request({
-    url: '/article/getAllTypeByUserId',
-    method: 'post',
-    data: {
-      id: 1
-    }
-  })
-}
-
-/**
  * 获取访问最多的文章
  */
 export function getMostVisits() {

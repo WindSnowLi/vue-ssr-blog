@@ -3,10 +3,8 @@
 </template>
 
 <script>
-  import {
-    getAboutByUserId,
-    findUserByUserId
-  } from '@/api/user.js'
+import {findUserByUserId, getAboutByUserId} from "../api/user";
+
   export default {
     layout: 'index',
     async asyncData() {

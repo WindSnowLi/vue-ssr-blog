@@ -3,12 +3,8 @@
 </template>
 
 <script>
-  import {
-    getAllTypeByUserId
-  } from '@/api/article.js'
-  import {
-    findUserByUserId
-  } from '@/api/user.js'
+  import {getAllTypeByUserId} from "../../../api/article-label";
+  import {findUserByUserId} from "../../../api/user";
   export default {
     layout: 'index',
     async asyncData() {

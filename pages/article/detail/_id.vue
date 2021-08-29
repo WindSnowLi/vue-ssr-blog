@@ -3,15 +3,14 @@
     :articleDetail="articleDetail"
     :user="user"
     :labels="labels"
-    :mostVisits="mostVisits"></detail>
+    :mostVisits="mostVisits"
+  >
+  </detail>
 </template>
 
 <script>
-import {
-  getMostVisits,
-  getAllLabel,
-  getArticleById
-} from '@/api/article.js'
+import {getArticleById, getMostVisits} from "../../../api/article";
+import {getAllLabel} from "../../../api/article-label";
 
 export default {
   layout: 'index',

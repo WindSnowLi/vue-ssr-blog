@@ -19,7 +19,7 @@ export function getAboutByUserId(_id) {
  */
 export function findUserByUserId() {
   return request({
-    url: '/user/visitorGetAuthorInfo',
+    url: '/user/getVisitorInfo',
     method: 'post',
     data: {
       id: 1

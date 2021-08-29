@@ -3,13 +3,9 @@
 </template>
 
 <script>
-  import {
-    getArticlesByLabel,
-    getLabelById,
-  } from '@/api/article.js'
-  import {
-    findUserByUserId
-  } from '@/api/user.js'
+  import {findUserByUserId} from "../../../api/user";
+  import {getArticlesByLabel, getLabelById} from "../../../api/article";
+
   export default {
     layout: 'index',
     async asyncData({

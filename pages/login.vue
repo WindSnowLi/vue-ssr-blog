@@ -51,7 +51,7 @@
 <script>
 import {getGiteeClientId} from "../api/sys";
 import {giteeLogin, login} from "../api/user";
-import {getToken, setToken} from "../utils/auth";
+import {setToken} from "../utils/auth";
 
 export default {
   name: "login",

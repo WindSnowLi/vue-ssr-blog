@@ -3,9 +3,8 @@
 </template>
 
 <script>
-  import {
-    getFriendLinks
-  } from '@/api/link.js'
+  import {getFriendLinks} from "../api/link";
+
   export default {
     layout: 'index',
     async asyncData() {

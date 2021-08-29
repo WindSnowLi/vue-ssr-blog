@@ -11,12 +11,9 @@
 <script>
   import {
     findUserByUserId
-  } from '@/api/user.js'
-  import {
-    getRecentArticles,
-    getMostVisits,
-    getAllLabel
-  } from '@/api/article.js'
+  } from "../api/user";
+  import {getMostVisits, getRecentArticles} from "../api/article";
+  import {getAllLabel} from "../api/article-label";
   export default {
     layout: 'index',
     async asyncData() {

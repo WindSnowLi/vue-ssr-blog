@@ -1,20 +1,26 @@
 <template>
-  <about-me :content="about"></about-me>
+  <about-me :content="about" :comments="comments" :about-comment="sundry.aboutComment"></about-me>
 </template>
 
 <script>
 import {findUserByUserId, getAboutByUserId} from "../api/user";
+import {getTargetComments} from "../api/comment";
+import {getSundry} from "../api/sys";
 
   export default {
     layout: 'index',
     async asyncData() {
-      let [user, about] = await Promise.all([
+      let [user, about, comments, sundry] = await Promise.all([
         findUserByUserId(),
-        getAboutByUserId()
+        getAboutByUserId(),
+        getTargetComments('ABOUT', 'PASS'),
+        getSundry()
       ])
       return {
         user,
-        about
+        about,
+        comments,
+        sundry: sundry.sundry
       }
     },
     head() {

@@ -68,8 +68,7 @@
                 </nuxt-link>
               </div>
             </div>
-            <comment :comments="comments" session-type="ARTICLE" :target-id="Number(this.$route.params.id)"></comment>
-
+            <comment v-if="articleComment" :comments="comments" session-type="ARTICLE" :target-id="Number(this.$route.params.id)"></comment>
           </div>
         </div>
         <!-- 侧边栏信息 -->
@@ -101,12 +100,19 @@ export default {
     mostVisits: {
       type: Array,
       required: true
+    },
+    articleComment: {
+      type: Boolean,
+      default: false
+    },
+    comments: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       comment: "",
-      comments: [],
       replyComments: {}
     }
   },
@@ -138,11 +144,6 @@ export default {
         }
       ]
     }
-  },
-  created() {
-    getTargetComments('ARTICLE', 'PASS', Number(this.$route.params.id)).then(rsp => {
-      this.comments = rsp
-    });
   }
 }
 </script>

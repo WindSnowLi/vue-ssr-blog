@@ -149,16 +149,16 @@ We may release future updates so it will overwrite this file. it's better and sa
 
   if ($backToTopBtn.length) {
     var scrollTrigger = 400,
-        // px
-    backToTop = function backToTop() {
-      var scrollTop = $(window).scrollTop();
+      // px
+      backToTop = function backToTop() {
+        var scrollTop = $(window).scrollTop();
 
-      if (scrollTop > scrollTrigger) {
-        $backToTopBtn.addClass('show');
-      } else {
-        $backToTopBtn.removeClass('show');
-      }
-    };
+        if (scrollTop > scrollTrigger) {
+          $backToTopBtn.addClass('show');
+        } else {
+          $backToTopBtn.removeClass('show');
+        }
+      };
 
     backToTop();
     $(window).on('scroll', function () {
@@ -174,15 +174,14 @@ We may release future updates so it will overwrite this file. it's better and sa
 
   /* 10: Ajax Contact Form
     ==============================================*/
-    $('.my-contact-form-cover').on('submit', 'form', function(e) {
-      e.preventDefault();
+  $('.my-contact-form-cover').on('submit', 'form', function (e) {
+    e.preventDefault();
 
-      var $el = $(this);
+    var $el = $(this);
 
-      $.post($el.attr('action'), $el.serialize(), function(res){
-          res = $.parseJSON( res );
-          $el.parent('.my-contact-form-cover').find('.form-response').html('<span>' + res[1] + '</span>');
-      });
+    $.post($el.attr('action'), $el.serialize(), function (res) {
+      res = $.parseJSON(res);
+      $el.parent('.my-contact-form-cover').find('.form-response').html('<span>' + res[1] + '</span>');
     });
-
+  });
 })(jQuery);

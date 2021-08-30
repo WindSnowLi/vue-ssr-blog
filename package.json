@@ -27,6 +27,7 @@
     "mavon-editor": "^2.9.1",
     "nuxt": "^2.15.7",
     "nuxt-fontawesome": "^0.4.0",
+    "tilt.js": "^1.2.1",
     "vue-append": "^2.0.1",
     "wowjs": "^1.1.3"
   },

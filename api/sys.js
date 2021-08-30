@@ -34,3 +34,13 @@ export function getGiteeClientId() {
     method: 'post'
   })
 }
+
+/**
+ * 获取杂项设置,含格式描述
+ */
+export function getSundry() {
+  return request({
+    url: '/sys/getSundry',
+    method: 'post'
+  })
+}

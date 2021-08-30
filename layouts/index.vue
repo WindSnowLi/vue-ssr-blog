@@ -20,16 +20,12 @@
 </template>
 
 <script>
-  import {
-    getUiConfig,
-    getSysConfig
-  } from '@/api/sys.js'
-  import {
-    background
-  } from '@/plugins/js/background.js'
-  import HeaderBar from '@/components/HeaderBar'
-  import BackTop from '@/components/BackTop'
-  import FooterLine from '@/components/FooterLine'
+  import HeaderBar from "../components/HeaderBar";
+  import BackTop from "../components/BackTop";
+  import FooterLine from "../components/FooterLine";
+  import {getSysConfig, getUiConfig} from "../api/sys";
+  import {background} from "../plugins/js/background";
+
   export default {
     components: {
       HeaderBar,

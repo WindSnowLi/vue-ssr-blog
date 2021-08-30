@@ -32,13 +32,8 @@
               密码?</a>
           </div>
           <div class="text-center p-t-136">
-            <a class="txt2" :href="giteeUrl">
+            <a v-if="giteeStatus" class="txt2" :href="giteeUrl">
               Gitee登录
-              <fa :icon="['fas', 'arrow-right']" class="m-l-5"/>
-            </a>
-            <br>
-            <a v-if="false" class="txt2" href="#">
-              GitHub登录
               <fa :icon="['fas', 'arrow-right']" class="m-l-5"/>
             </a>
           </div>
@@ -60,13 +55,15 @@ export default {
       getGiteeClientId()
     ])
     return {
-      client_id: giteeClientId.clientId
+      clientId: giteeClientId.clientId,
+      // 是否允许Gitee方式登录
+      giteeStatus: giteeClientId.status
     }
   },
   data() {
     return {
       giteeUrl: "",
-      status: true,
+      status: true, // 登录状态，加载登录界面是判断跳转状态
       user: {
         account: "",
         password: ""
@@ -76,7 +73,6 @@ export default {
   head() {
     return {
       link: [{rel: "stylesheet", href: "css/main.css"}, {rel: "stylesheet", href: "css/util.css"}],
-      script: [{src: "https://unpkg.com/tilt.js@1.1.21/dest/tilt.jquery.min.js", ssr: false}],
       title: '登录',
       meta: [{
         name: 'keywords',
@@ -94,7 +90,7 @@ export default {
       let encodeCallback = encodeURIComponent(window.location.protocol + "//" + window.location.host + window.location.pathname)
       let url = 'https://gitee.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code'
         .replace('${redirect_uri}', encodeCallback)
-        .replace('${client_id}', this.client_id)
+        .replace('${client_id}', this.clientId)
       if (this.$route.query.redirect) {
         url += '&state=' + this.$route.query.redirect
       }
@@ -118,13 +114,16 @@ export default {
     },
   },
   mounted() {
-    // 加载图片3D效果
-    $('.js-tilt').tilt()
-    // 加载Gitee登录Url
-    this.giteeUrl = this.getGiteeLoginUrl()
+    if (process.client) {
+      // 加载Gitee登录Url
+      if (this.giteeStatus) {
+        this.giteeUrl = this.getGiteeLoginUrl()
+      }
+      require('tilt.js')
+    }
   },
   created() {
-    if (this.$route.query.code && process.client && this.status) {
+    if (this.$route.query.code && process.client && this.status && this.giteeStatus) {
       this.status = false
       giteeLogin(this.$route.query.code, window.location.protocol + "//" + window.location.host + window.location.pathname).then(rsp => {
         setToken(rsp.token)

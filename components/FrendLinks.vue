@@ -71,9 +71,7 @@
 </template>
 
 <script>
-  import {
-    applyFriendLink
-  } from '@/api/link.js'
+  import {applyFriendLink} from "../api/link";
 
   export default {
     name: 'FrendLinks',
@@ -159,8 +157,6 @@
     font-size: 0;
     background-color: rgba(0, 0, 0, 0);
     margin: 0;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
     width: 100%;
     border-radius: 25px;
   }

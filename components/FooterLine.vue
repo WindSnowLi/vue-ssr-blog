@@ -6,7 +6,7 @@
           <div class="footer-social">
             <div v-if="security" class="flex-row text-center">
               <a style="color: #000000;" target="_blank" :href="getSecurity(security)">
-                <img src="https://www.firstmeet.xyz/%E5%A4%87%E6%A1%88%E5%9B%BE%E6%A0%87.png" />
+                <img src="/images/gongan.png" />
                 {{ security }}
               </a>
             </div>

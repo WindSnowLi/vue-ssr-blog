@@ -2,50 +2,50 @@
   <div class="main-404">
     <div id="wrapper">
       <div id="totoro">
-        <div id="totoro_top"></div>
+        <div id="totoro_top" />
         <div id="totoro_face">
-          <div class="ear left"></div>
-          <div class="ear right"></div>
-          <div class="eye left_eye"></div>
-          <div class="eye right_eye"></div>
-          <div class="nose"></div>
-          <div class="mouth"></div>
+          <div class="ear left" />
+          <div class="ear right" />
+          <div class="eye left_eye" />
+          <div class="eye right_eye" />
+          <div class="nose" />
+          <div class="mouth" />
           <div class="beard_left">
-            <div class="beard bread_1"></div>
-            <div class="beard bread_2"></div>
-            <div class="beard bread_3"></div>
+            <div class="beard bread_1" />
+            <div class="beard bread_2" />
+            <div class="beard bread_3" />
           </div>
           <div class="beard_right">
-            <div class="beard bread_1"></div>
-            <div class="beard bread_2"></div>
-            <div class="beard bread_3"></div>
+            <div class="beard bread_1" />
+            <div class="beard bread_2" />
+            <div class="beard bread_3" />
           </div>
         </div>
         <div id="totoro_bottom">
           <div class="stomach">
-            <div class="pattern" :key="i" v-for="i in 6"></div>
+            <div v-for="i in 6" :key="i" class="pattern" />
           </div>
         </div>
         <div id="totoro_arms">
-          <div class="arm arm_left"></div>
-          <div class="arm arm_right"></div>
+          <div class="arm arm_left" />
+          <div class="arm arm_right" />
         </div>
         <div id="totoro_foot">
-          <div class="foot foot_left"></div>
-          <div class="foot foot_right"></div>
+          <div class="foot foot_left" />
+          <div class="foot foot_right" />
         </div>
         <div class="umbrella">
           <div class="inner">
             <div class="top">
-              <div class="back"></div>
-              <div class="part" :key="i" v-for="i in 3"></div>
+              <div class="back" />
+              <div v-for="i in 3" :key="i" class="part" />
             </div>
-            <div class="handle"></div>
+            <div class="handle" />
           </div>
         </div>
       </div>
       <div id="electric_light">
-        <div class="pillar"></div>
+        <div class="pillar" />
       </div>
       <div id="bus_stop">
         <div id="circle">
@@ -54,51 +54,51 @@
             <nuxt-link :to="backTo">{{ backTitle }}</nuxt-link>
           </div>
         </div>
-        <div id="hilt"></div>
-        <div id="stand"></div>
+        <div id="hilt" />
+        <div id="stand" />
       </div>
     </div>
     <div class="rain">
-      <div class="drops" :key="i" v-for="i in 500">
-        <div class="drop"></div>
+      <div v-for="i in 500" :key="i" class="drops">
+        <div class="drop" />
       </div>
     </div>
     <div class="rain_heavy">
-      <div class="drops" :key="i" v-for="i in 500">
-        <div class="drop"></div>
+      <div v-for="i in 500" :key="i" class="drops">
+        <div class="drop" />
       </div>
     </div>
     <div id="ground">
       <div class="totoro_shadow">
-        <div class="inner"></div>
+        <div class="inner" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'NotFound',
-    data() {
-      return {
-        backTo: {
-          name: 'index'
-        },
-        backTitle: 'not found'
-      }
-    },
-    head() {
-      return {
-        title: '404',
-        meta: [
-          {
-            name: 'description',
-            content: 'not found'
-          }
-        ]
-      }
+export default {
+  name: 'NotFound',
+  data() {
+    return {
+      backTo: {
+        name: 'index'
+      },
+      backTitle: 'not found'
+    }
+  },
+  head() {
+    return {
+      title: '404',
+      meta: [
+        {
+          name: 'description',
+          content: 'not found'
+        }
+      ]
     }
   }
+}
 </script>
 
 <style scoped>

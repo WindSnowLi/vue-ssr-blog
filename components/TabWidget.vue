@@ -6,42 +6,42 @@
     </h4>
     <!-- 组件标题结束 -->
     <!-- 组件内容 -->
-    <tag-cloud :labels="tags" :tags-num="this.tags.length"></tag-cloud>
+    <tag-cloud :labels="tags" :tags-num="this.tags.length" />
     <!-- 组件内容结束 -->
   </div>
 </template>
 
 <script>
-  export default {
-    name: 'TabWidget',
-    props: {
-      labels: {
-        type: Array,
-        required: true
-      }
-    },
-    data() {
-      return {
-        tags: []
-      }
-    },
-    created() { //初始化标签位置
-      let tags = []
-      for (let i = 0; i < this.labels.length; i++) {
-        let tag = {
-          name: this.labels[i].name,
-          link: {
-            name: 'article-tag-id',
-            params: {
-              id: this.labels[i].id
-            }
+export default {
+  name: 'TabWidget',
+  props: {
+    labels: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
+    return {
+      tags: []
+    }
+  },
+  created() { // 初始化标签位置
+    const tags = []
+    for (let i = 0; i < this.labels.length; i++) {
+      const tag = {
+        name: this.labels[i].name,
+        link: {
+          name: 'article-tag-id',
+          params: {
+            id: this.labels[i].id
           }
         }
-        tags.push(tag)
       }
-      this.tags = tags
+      tags.push(tag)
     }
+    this.tags = tags
   }
+}
 </script>
 <style scoped>
   /deep/ svg>a>text {

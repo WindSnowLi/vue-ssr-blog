@@ -1,14 +1,14 @@
 <template>
   <div>
-    <page-title title="首页" :route-list="getPageTitle()"></page-title>
+    <page-title title="首页" :route-list="getPageTitle()" />
     <div class="container pt-120 pb-90 panel">
       <div class="row">
         <div class="col-md-12">
           <div class="col-md-10 offset-md-1">
             <div class="page-text">
-              <mark-down v-bind:md="content"></mark-down>
+              <mark-down :md="content" />
             </div>
-            <comment v-if="aboutComment" class="post-details-cover post-all-comments" style="margin-top: 100px" :comments="comments" session-type="ABOUT"></comment>
+            <comment v-if="aboutComment" class="post-details-cover post-all-comments" style="margin-top: 100px" :comments="comments" session-type="ABOUT" />
           </div>
         </div>
       </div>
@@ -41,12 +41,12 @@ export default {
           name: 'index'
         }
       },
-        {
-          title: '关于',
-          to: {
-            name: 'about',
-          }
+      {
+        title: '关于',
+        to: {
+          name: 'about'
         }
+      }
       ]
     }
   }

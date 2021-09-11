@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'BackTop'
-  }
+export default {
+  name: 'BackTop'
+}
 </script>

@@ -22,13 +22,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'AuthorWidget',
-    props: {
-      user: {
-        type: Object,
-        required: true
-      }
+export default {
+  name: 'AuthorWidget',
+  props: {
+    user: {
+      type: Object,
+      required: true
     }
   }
+}
 </script>

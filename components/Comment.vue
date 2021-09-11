@@ -6,8 +6,11 @@
         <div class="single-post-comment">
           <!-- Author Image -->
           <div class="comment-author-image">
-            <img :src="item.fromUser.avatar"
-                 alt="" class="img-fluid">
+            <img
+              :src="item.fromUser.avatar"
+              alt=""
+              class="img-fluid"
+            >
           </div>
           <!-- Comment Content -->
           <div class="comment-content">
@@ -22,22 +25,24 @@
               class="reply-box"
               placeholder="回复点什么······"
               max-rows="24"
-            ></b-form-textarea>
+            />
             <div class="reply-btn">
               <b-button @click="replyComment(`${item.id}-`,item.fromUser.id,item.id)">{{ replyBtn }}回复</b-button>
             </div>
           </div>
         </div>
         <!-- End of Single Comment -->
-        <ul v-if="item.childList.length!==0" v-for="(childItem,childIndex) in item.childList" class="children">
+        <ul v-for="(childItem,childIndex) in item.childList" v-if="item.childList.length!==0" class="children">
           <li class="single-comment-wrapper">
             <!-- Single Comment -->
             <div class="single-post-comment">
               <!-- Author Image -->
               <div class="comment-author-image">
-                <img :src="childItem.fromUser.avatar"
-                     alt=""
-                     class="img-fluid">
+                <img
+                  :src="childItem.fromUser.avatar"
+                  alt=""
+                  class="img-fluid"
+                >
               </div>
               <!-- Comment Content -->
               <div class="comment-content">
@@ -60,11 +65,11 @@
                   class="reply-box"
                   placeholder="回复点什么······"
                   max-rows="24"
-                ></b-form-textarea>
+                />
                 <div class="reply-btn">
                   <b-button @click="replyComment(`${item.id}-${childItem.id}`,item.fromUser.id,item.id)">{{
-                      replyBtn
-                    }}回复
+                    replyBtn
+                  }}回复
                   </b-button>
                 </div>
               </div>
@@ -76,12 +81,12 @@
     </ul>
     <div class="post-details-comments">
       <b-form-textarea
+        v-model="comment"
         rows="3"
         class="reply-box"
         placeholder="评论点什么······"
         max-rows="24"
-        v-model="comment"
-      ></b-form-textarea>
+      />
       <div class="btn-publish-comments">
         <b-button @click="publishComment()">{{ replyBtn }}发表新评论</b-button>
       </div>
@@ -90,11 +95,11 @@
 </template>
 
 <script>
-import {addComment} from "../api/comment";
-import {getToken} from "../utils/auth";
+import { addComment } from '../api/comment'
+import { getToken } from '../utils/auth'
 
 export default {
-  name: "Comment",
+  name: 'Comment',
   props: {
     sessionType: {
       type: String,
@@ -111,9 +116,16 @@ export default {
   },
   data() {
     return {
-      comment: "",
+      comment: '',
       replys: {},
-      replyBtn: ""
+      replyBtn: ''
+    }
+  },
+  created() {
+    if (getToken()) {
+      this.replyBtn = ''
+    } else {
+      this.replyBtn = '登陆后'
     }
   },
   methods: {
@@ -128,7 +140,7 @@ export default {
         })
         this.$router.push({
           name: 'login',
-          query: {redirect: window.location.protocol + "//" + window.location.host + window.location.pathname}
+          query: { redirect: window.location.protocol + '//' + window.location.host + window.location.pathname }
         })
       }
     },
@@ -142,9 +154,9 @@ export default {
           autoHideDelay: 3000,
           toaster: 'b-toaster-bottom-right'
         })
-        return;
+        return
       }
-      addComment(getToken(), this.sessionType, this.comment, this.targetId).then(rsp => {
+      addComment(getToken(), this.sessionType, this.comment, this.targetId).then((rsp) => {
         this.$bvToast.toast(`评论发表成功，审核通过后显示。`, {
           title: '评论发表提示',
           variant: 'success',
@@ -152,7 +164,7 @@ export default {
           autoHideDelay: 3000,
           toaster: 'b-toaster-bottom-right'
         })
-        this.comment = ""
+        this.comment = ''
       })
     },
     replyComment(index, toUser, parentId) {
@@ -165,9 +177,9 @@ export default {
           autoHideDelay: 3000,
           toaster: 'b-toaster-bottom-right'
         })
-        return;
+        return
       }
-      addComment(getToken(), this.sessionType, this.replys[`${index}`], this.targetId, parentId, toUser).then(rsp => {
+      addComment(getToken(), this.sessionType, this.replys[`${index}`], this.targetId, parentId, toUser).then((rsp) => {
         this.$bvToast.toast(`评论回复成功，审核通过后显示。`, {
           title: '评论回复提示',
           variant: 'info',
@@ -175,15 +187,8 @@ export default {
           autoHideDelay: 3000,
           toaster: 'b-toaster-bottom-right'
         })
-        this.replys[`${index}`] = ""
+        this.replys[`${index}`] = ''
       })
-    }
-  },
-  created() {
-    if (getToken()) {
-      this.replyBtn = ""
-    } else {
-      this.replyBtn = "登陆后"
     }
   }
 }

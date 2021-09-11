@@ -1,36 +1,35 @@
 <template>
-  <b-pagination class="justify-content-center" v-model="currentPage" :total-rows="total" :per-page="limit" first-number last-number size="lg">
-  </b-pagination>
+  <b-pagination v-model="currentPage" class="justify-content-center" :total-rows="total" :per-page="limit" first-number last-number size="lg" />
 </template>
 
 <script>
-  export default {
-    name: 'paging',
-    props: {
-      jump: {
-        type: Function,
-        required: true
-      },
-      total: {
-        type: Number,
-        required: true
-      },
-      limit: {
-        type: Number,
-        required: true
-      }
+export default {
+  name: 'Paging',
+  props: {
+    jump: {
+      type: Function,
+      required: true
     },
-    data() {
-      return {
-        currentPage: 1
-      }
+    total: {
+      type: Number,
+      required: true
     },
-    watch: {
-      currentPage(newValue, oldValue) {
-        this.jump(newValue)
-      }
+    limit: {
+      type: Number,
+      required: true
+    }
+  },
+  data() {
+    return {
+      currentPage: 1
+    }
+  },
+  watch: {
+    currentPage(newValue, oldValue) {
+      this.jump(newValue)
     }
   }
+}
 </script>
 <style scoped>
   /deep/ .page-link {
@@ -45,7 +44,6 @@
     background-color: rgba(253, 33, 140, 0.5);
     border: none;
   }
-
 
   /deep/ .page-item.disabled .page-link {
     color: #FFFFFF;

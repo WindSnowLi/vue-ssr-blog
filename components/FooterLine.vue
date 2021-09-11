@@ -6,7 +6,7 @@
           <div class="footer-social">
             <div v-if="security" class="flex-row text-center">
               <a style="color: #000000;" target="_blank" :href="getSecurity(security)">
-                <img src="/images/gongan.png" />
+                <img src="/images/gongan.png">
                 {{ security }}
               </a>
             </div>
@@ -23,22 +23,22 @@
 </template>
 
 <script>
-  export default {
-    name: 'FooterLine',
-    props: {
-      icp: {
-        type: String
-      },
-      security: {
-        type: String
-      }
+export default {
+  name: 'FooterLine',
+  props: {
+    icp: {
+      type: String
     },
-    methods: {
-      getSecurity(security) {
-        return "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=" + security.match(/\b.*\b/)
-      }
+    security: {
+      type: String
+    }
+  },
+  methods: {
+    getSecurity(security) {
+      return 'http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + security.match(/\b.*\b/)
     }
   }
+}
 </script>
 
 <style>

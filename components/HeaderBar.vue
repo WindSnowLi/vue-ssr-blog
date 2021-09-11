@@ -30,7 +30,7 @@
                 <li class="navbar-brand">
                   <nuxt-link class="fs-23" :to="{ name: 'about' }">关于</nuxt-link>
                 </li>
-                <li class="navbar-brand" v-if="adminPage">
+                <li v-if="adminPage" class="navbar-brand">
                   <a class="fs-23" :href="adminPage">后台</a>
                 </li>
               </ul>
@@ -57,19 +57,19 @@
 </template>
 
 <script>
-  export default {
-    name: 'HeaderBars',
-    props: {
-      topbarTitle: {
-        type: String,
-        default: ''
-      },
-      adminPage: {
-        type: String,
-        default: ''
-      }
+export default {
+  name: 'HeaderBars',
+  props: {
+    topbarTitle: {
+      type: String,
+      default: ''
+    },
+    adminPage: {
+      type: String,
+      default: ''
     }
   }
+}
 </script>
 
 <style scoped>

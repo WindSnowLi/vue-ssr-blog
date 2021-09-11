@@ -7,7 +7,7 @@
     <!-- 组件标题结束 -->
 
     <!-- 组件内容 -->
-    <div class="widget-content" :value="item" :key="i" v-for="(item,i) in articles">
+    <div v-for="(item,i) in articles" :key="i" class="widget-content" :value="item">
       <!-- Single Post -->
       <div class="wrp-cover panel">
         <!-- Post Thumbnail -->
@@ -19,7 +19,7 @@
         <!-- Post Title -->
         <div class="post-title">
           <router-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
-            {{item.article.title}}
+            {{ item.article.title }}
           </router-link>
         </div>
       </div>
@@ -30,13 +30,13 @@
 </template>
 
 <script>
-  export default {
-    name: 'MostVisits',
-    props: {
-      articles: {
-        type: Array,
-        required: true
-      }
+export default {
+  name: 'MostVisits',
+  props: {
+    articles: {
+      type: Array,
+      required: true
     }
   }
+}
 </script>

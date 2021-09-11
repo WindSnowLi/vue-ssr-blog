@@ -3,14 +3,14 @@
 </template>
 
 <script>
-  import {findUserByUserId} from "../../../api/user";
+  import {getVisitorInfo} from "../../../api/user";
   import {getAllLabel} from "../../../api/article-label";
 
   export default {
     layout: 'index',
     async asyncData() {
       let [user, labels] = await Promise.all([
-        findUserByUserId(),
+        getVisitorInfo(),
         getAllLabel(),
       ])
       let keywords = ""

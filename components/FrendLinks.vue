@@ -1,12 +1,12 @@
 <template>
   <div>
-    <page-title title="首页" :route-list="getPageTitle()"></page-title>
+    <page-title title="首页" :route-list="getPageTitle()" />
     <div class="container pt-120 pb-90">
       <div class="row">
-        <div class="link-box cover-oic" :key="index" v-for="(item,index) in frendLinks">
+        <div v-for="(item,index) in frendLinks" :key="index" class="link-box cover-oic">
           <a :href="item.link" target="_blank">
             <div class="thumb">
-              <img :src="item.coverPic" alt="示意图" />
+              <img :src="item.coverPic" alt="示意图">
             </div>
             <div class="link-content">
               <h2 class="link-title">{{ item.title }}</h2>
@@ -24,41 +24,42 @@
         <div class="section-title text-center">
           <h2>友链申请</h2>
         </div>
-        <b-alert class="col-lg-8 offset-lg-2 text-center" :show="dismissCountDown" dismissible :variant="inforType"
-          @dismissed="dismissCountDown=0" @dismiss-count-down="countDownChanged">
+        <b-alert
+          class="col-lg-8 offset-lg-2 text-center"
+          :show="dismissCountDown"
+          dismissible
+          :variant="inforType"
+          @dismissed="dismissCountDown=0"
+          @dismiss-count-down="countDownChanged"
+        >
           {{ infor }} {{ dismissCountDown }} s...
         </b-alert>
         <!-- End of Section title -->
         <div class="row">
           <div class="col-lg-8 offset-lg-2">
             <!-- Newsletter Form -->
-            <b-form @submit="onSubmit" @reset="onReset" class="text-center">
+            <b-form class="text-center" @submit="onSubmit" @reset="onReset">
               <div class="form-row">
-                <b-form-group class="form-group col-md-6" id="input-group-1" label="邮箱地址" label-for="emali">
-                  <b-form-input id="input-1" v-model="friendLink.email" type="email" required placeholder="邮箱联系地址">
-                  </b-form-input>
+                <b-form-group id="input-group-1" class="form-group col-md-6" label="邮箱地址" label-for="emali">
+                  <b-form-input id="input-1" v-model="friendLink.email" type="email" required placeholder="邮箱联系地址" />
                 </b-form-group>
 
-                <b-form-group class="form-group col-md-6" id="input-group-2" label="网页命名" label-for="name">
-                  <b-form-input id="input-2" v-model="friendLink.title" type="text" required placeholder="网页命名">
-                  </b-form-input>
+                <b-form-group id="input-group-2" class="form-group col-md-6" label="网页命名" label-for="name">
+                  <b-form-input id="input-2" v-model="friendLink.title" type="text" required placeholder="网页命名" />
                 </b-form-group>
               </div>
 
               <div class="form-row">
-                <b-form-group class="form-group col-md-6" id="input-group-3" label="URL链接" label-for="url">
-                  <b-form-input id="input-3" v-model="friendLink.link" type="text" required placeholder="URL链接">
-                  </b-form-input>
+                <b-form-group id="input-group-3" class="form-group col-md-6" label="URL链接" label-for="url">
+                  <b-form-input id="input-3" v-model="friendLink.link" type="text" required placeholder="URL链接" />
                 </b-form-group>
-                <b-form-group class="form-group col-md-6" id="input-group-4" label="封面" label-for="coverPic">
-                  <b-form-input id="input-4" v-model="friendLink.coverPic" type="text" required placeholder="封面URL链接">
-                  </b-form-input>
+                <b-form-group id="input-group-4" class="form-group col-md-6" label="封面" label-for="coverPic">
+                  <b-form-input id="input-4" v-model="friendLink.coverPic" type="text" required placeholder="封面URL链接" />
                 </b-form-group>
               </div>
 
-              <b-form-group class="form-group" id="input-group-5" label="介绍" label-for="describe">
-                <b-form-input id="input-5" v-model="friendLink.describe" type="text" required placeholder="网页描述">
-                </b-form-input>
+              <b-form-group id="input-group-5" class="form-group" label="介绍" label-for="describe">
+                <b-form-input id="input-5" v-model="friendLink.describe" type="text" required placeholder="网页描述" />
               </b-form-group>
               <b-button type="submit" variant="primary">提交</b-button>
               <b-button type="reset" variant="danger">重置</b-button>
@@ -71,84 +72,84 @@
 </template>
 
 <script>
-  import {applyFriendLink} from "../api/link";
+import { applyFriendLink } from '../api/link'
 
-  export default {
-    name: 'FrendLinks',
-    props: {
-      frendLinks: {
-        type: Array,
-        required: true
-      }
-    },
-    data() {
-      return {
-        friendLink: {
-          coverPic: "",
-          describe: "",
-          email: "",
-          link: "",
-          title: ""
-        },
-        dismissSecs: 3,
-        dismissCountDown: 0,
-        infor: "",
-        inforType: "",
-        show: true
-      }
-    },
-    methods: {
-      onSubmit(evt) {
-        evt.preventDefault()
-        let keys = Object.keys(this.friendLink)
-        for (let i in keys) {
-          if (this.friendLink[keys[i]] === "") {
-            this.inforType = "warning"
-            this.showAlert()
-            this.infor = "不可存在空项"
-            return
-          }
-        }
-        applyFriendLink(this.friendLink).then(() => {
-          this.inforType = "success"
+export default {
+  name: 'FrendLinks',
+  props: {
+    frendLinks: {
+      type: Array,
+      required: true
+    }
+  },
+  data() {
+    return {
+      friendLink: {
+        coverPic: '',
+        describe: '',
+        email: '',
+        link: '',
+        title: ''
+      },
+      dismissSecs: 3,
+      dismissCountDown: 0,
+      infor: '',
+      inforType: '',
+      show: true
+    }
+  },
+  methods: {
+    onSubmit(evt) {
+      evt.preventDefault()
+      const keys = Object.keys(this.friendLink)
+      for (const i in keys) {
+        if (this.friendLink[keys[i]] === '') {
+          this.inforType = 'warning'
           this.showAlert()
-          this.infor = "提交成功"
-        })
-      },
-      onReset(evt) {
-        evt.preventDefault()
-        let keys = Object.keys(this.friendLink)
-        for (let i in keys) {
-          this.friendLink[keys[i]] = ""
+          this.infor = '不可存在空项'
+          return
         }
-        this.show = false
-        this.$nextTick(() => {
-          this.show = true
-        })
-      },
-      getPageTitle() {
-        return [{
-            title: '首页',
-            to: {
-              name: 'index'
-            }
-          },
-          {
-            title: '友链',
-            to: {
-              name: 'links'
-            }
-          }
-        ]
-      },
-      countDownChanged(dismissCountDown) {
-        this.dismissCountDown = dismissCountDown
-      },
-      showAlert() {
-        this.dismissCountDown = this.dismissSecs
       }
+      applyFriendLink(this.friendLink).then(() => {
+        this.inforType = 'success'
+        this.showAlert()
+        this.infor = '提交成功'
+      })
+    },
+    onReset(evt) {
+      evt.preventDefault()
+      const keys = Object.keys(this.friendLink)
+      for (const i in keys) {
+        this.friendLink[keys[i]] = ''
+      }
+      this.show = false
+      this.$nextTick(() => {
+        this.show = true
+      })
+    },
+    getPageTitle() {
+      return [{
+        title: '首页',
+        to: {
+          name: 'index'
+        }
+      },
+      {
+        title: '友链',
+        to: {
+          name: 'links'
+        }
+      }
+      ]
+    },
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs
     }
   }
+}
 </script>
 
 <style scoped>

@@ -4,14 +4,14 @@
  * @param {Object} id 控件ID
  */
 export function background(imgList, id) {
-  var duration = imgList.length * 6;
-  var rs = '';
-  for (var i in imgList) {
+  const duration = imgList.length * 6
+  let rs = ''
+  for (const i in imgList) {
     rs = rs + "<li style='list-style-type:none;'><span style='background-image: url(" + imgList[i] +
-      ");animation:imageAnimation " + duration + "s linear infinite " + i * 6 + "s;-webkit-animation:imageAnimation " +
-      duration + "s linear infinite " + i * 6 + "s;'></span></li>";
+      ');animation:imageAnimation ' + duration + 's linear infinite ' + i * 6 + 's;-webkit-animation:imageAnimation ' +
+      duration + 's linear infinite ' + i * 6 + "s;'></span></li>"
   }
   if (process.client) {
-    document.getElementById('background-list').innerHTML = rs;
+    document.getElementById('background-list').innerHTML = rs
   }
 }

@@ -15,19 +15,6 @@ export function getAboutByUserId(_id) {
 }
 
 /**
- * 通过用户ID获取信息
- */
-export function findUserByUserId() {
-  return request({
-    url: '/user/getVisitorInfo',
-    method: 'post',
-    data: {
-      id: 1
-    }
-  })
-}
-
-/**
  *
  * 根据Gitee授权码获取对象
  * @param {String} code Gitee授权码
@@ -53,5 +40,18 @@ export function login(data) {
     url: '/user/login',
     method: 'post',
     data
+  })
+}
+
+/**
+ * 通过用户ID获取信息
+ */
+export function getVisitorInfo() {
+  return request({
+    url: '/user/getVisitorInfo',
+    method: 'post',
+    data: {
+      id: 1
+    }
   })
 }

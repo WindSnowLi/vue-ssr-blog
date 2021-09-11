@@ -1,6 +1,6 @@
 <template>
   <div>
-    <page-title :routeList="getPageTitle(articleDetail.article)"></page-title>
+    <page-title :route-list="getPageTitle(articleDetail.article)" />
     <div class="container pt-40 pb-90">
       <div class="row">
         <div class="col-lg-8 pb-80 panel" style="margin-bottom: auto">
@@ -15,7 +15,7 @@
                 </div>
                 <!-- 类别 -->
                 <p class="cats">
-                  <fa :icon="['fas', 'list-alt']"/>
+                  <fa :icon="['fas', 'list-alt']" />
                   <nuxt-link :to="{ name: 'article-type-id', params: { id: articleDetail.article.articleType.id } }">
                     {{ articleDetail.article.articleType.name }}
                   </nuxt-link>
@@ -29,7 +29,7 @@
                     </li>
                     <li class="meta-date"><a href="#">{{ articleDetail.article.createTime }}</a></li>
                     <li class="meta-date">
-                      <fa :icon="['fas', 'eye']"/>
+                      <fa :icon="['fas', 'eye']" />
                       <a href="#">{{ articleDetail.article.visitsCount }}</a>
                     </li>
                   </ul>
@@ -40,15 +40,19 @@
             <!-- 封面介绍结束 -->
             <br>
             <!-- Post Content -->
-            <mark-down :md="articleDetail.article.content"></mark-down>
+            <mark-down :md="articleDetail.article.content" />
             <!-- End of Post Content -->
 
             <!-- 标签 -->
             <div class="post-all-tags">
               <template v-for="(label,i) in articleDetail.article.labels">
-                <nuxt-link class="badge badge-info" :value="label" :key="i"
-                           :to="{ name: 'article-tag-id', params: { id: label.id } }">
-                  <fa :icon="['fas', 'tag']"/>
+                <nuxt-link
+                  :key="i"
+                  class="badge badge-info"
+                  :value="label"
+                  :to="{ name: 'article-tag-id', params: { id: label.id } }"
+                >
+                  <fa :icon="['fas', 'tag']" />
                   {{ label.name }}
                 </nuxt-link>
               </template>
@@ -57,22 +61,22 @@
             <div v-if="articleDetail.next || articleDetail.pre" class="previous-next-links">
               <div v-if="articleDetail.pre" class="previous-design-link">
                 <nuxt-link :to="{ name:'article-detail-id',params:{ id: articleDetail.pre.id } }">
-                  <fa :icon="['fas', 'arrow-left']" style="font-size:16px;" aria-hidden="true"/>
+                  <fa :icon="['fas', 'arrow-left']" style="font-size:16px;" aria-hidden="true" />
                   {{ articleDetail.pre.title }}
                 </nuxt-link>
               </div>
               <div v-if="articleDetail.next" class="next-design-link">
                 <nuxt-link :to="{ name:'article-detail-id',params:{ id: articleDetail.next.id } }">
                   {{ articleDetail.next.title }}
-                  <fa :icon="['fas', 'arrow-right']" style="font-size:16px;" aria-hidden="true"/>
+                  <fa :icon="['fas', 'arrow-right']" style="font-size:16px;" aria-hidden="true" />
                 </nuxt-link>
               </div>
             </div>
-            <comment v-if="articleComment" :comments="comments" session-type="ARTICLE" :target-id="Number(this.$route.params.id)"></comment>
+            <comment v-if="articleComment" :comments="comments" session-type="ARTICLE" :target-id="Number(this.$route.params.id)" />
           </div>
         </div>
         <!-- 侧边栏信息 -->
-        <my-sidebar v-bind:user="user" v-bind:most-visits="mostVisits" v-bind:labels="labels"></my-sidebar>
+        <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" />
         <!-- 侧边栏信息结束 -->
       </div>
     </div>
@@ -80,7 +84,6 @@
 </template>
 
 <script>
-import {getTargetComments} from "../api/comment";
 
 export default {
   name: 'Detail',
@@ -112,7 +115,7 @@ export default {
   },
   data() {
     return {
-      comment: "",
+      comment: '',
       replyComments: {}
     }
   },
@@ -124,24 +127,24 @@ export default {
           name: 'index'
         }
       },
-        {
-          title: article.articleType.name,
-          to: {
-            name: 'article-type-id',
-            params: {
-              id: article.articleType.id
-            }
-          }
-        },
-        {
-          title: article.title,
-          to: {
-            name: 'article-detail-id',
-            params: {
-              id: article.id
-            }
+      {
+        title: article.articleType.name,
+        to: {
+          name: 'article-type-id',
+          params: {
+            id: article.articleType.id
           }
         }
+      },
+      {
+        title: article.title,
+        to: {
+          name: 'article-detail-id',
+          params: {
+            id: article.id
+          }
+        }
+      }
       ]
     }
   }

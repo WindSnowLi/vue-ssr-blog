@@ -4,13 +4,13 @@ import request from '../utils/request.js';
  * 获取所有文章
  */
 export function getArticlesByPage(page, limit) {
-  request({
+  return request({
     url: '/article/getArticlesByPage',
     method: 'post',
     data: {
-      userId: 1,
       page: page,
       limit: limit,
+      sort: '-id',
       status: 'PUBLISHED'
     }
   })
@@ -20,43 +20,24 @@ export function getArticlesByPage(page, limit) {
  * 获取最近文章
  */
 export function getRecentArticles() {
-  return request({
-    url: '/article/getArticlesByPage',
-    method: 'post',
-    data: {
-      userId: 1,
-      page: 1,
-      limit: 3,
-      status: 'PUBLISHED'
-    }
-  })
+  return getArticlesByPage(1, 3)
 }
 
 /**
  * 分页获取文章
- * @param userId 用户ID
  * @param {*} page 页
  * @param {*} limit 每页大小
  */
-export function getHistoryArticles(userId, page, limit) {
-  return request({
-    url: '/article/getArticlesByPage',
-    method: 'post',
-    data: {
-      userId: userId,
-      page: page,
-      limit: limit,
-      status: 'PUBLISHED'
-    }
-  })
+export function getHistoryArticles(page, limit) {
+  return getArticlesByPage(page, limit)
 }
 
 /**
  * 获取访问最多的文章
  */
-export function getMostVisits() {
+export function getMostPV() {
   return request({
-    url: '/article/getMostVisitsJson',
+    url: '/article/getMostPV',
     method: 'post',
     data: {
       limit: 5
@@ -73,7 +54,7 @@ export function getArticleById(id) {
     url: '/article/getArticleById',
     method: 'post',
     data: {
-      id: id
+      id
     }
   })
 }
@@ -81,13 +62,21 @@ export function getArticleById(id) {
 /**
  * 获取所属分类文章
  * @param {*} id 分类ID
+ * @param {*} page 页
+ * @param {*} limit 每页大小
  */
-export function getArticlesByType(id) {
+export function getArticlesByType(id, page, limit) {
   return request({
     url: '/article/getArticlesByType',
     method: 'post',
     data: {
-      id: id
+      id,
+      content: {
+        limit,
+        page,
+        sort: '-id',
+        status: 'PUBLISHED'
+      }
     }
   })
 }
@@ -101,7 +90,7 @@ export function getTypeById(id) {
     url: '/articleLabel/getTypeById',
     method: 'post',
     data: {
-      id: id
+      id
     }
   })
 }
@@ -112,10 +101,10 @@ export function getTypeById(id) {
  */
 export function getLabelById(id) {
   return request({
-    url: '/articleLabel/getLabelByIdJson',
+    url: '/articleLabel/getLabelById',
     method: 'post',
     data: {
-      id: id
+      id
     }
   })
 }
@@ -123,16 +112,20 @@ export function getLabelById(id) {
 /**
  * 通过标签ID获取标签所属文章
  * @param {*} id 标签ID
+ * @param {*} page 页
+ * @param {*} limit 每页大小
  */
-export function getArticlesByLabel(id) {
+export function getArticlesByLabel(id, page, limit) {
   return request({
     url: '/article/getArticlesByLabel',
     method: 'post',
     data: {
-      id: id,
+      id,
       content: {
-        limit: 100,
-        page: 1
+        limit,
+        page,
+        sort: '-id',
+        status: 'PUBLISHED'
       }
     }
   })

@@ -3,13 +3,10 @@ import request from "../utils/request"
 /**
  * 通过分类ID获取分类
  */
-export function getAllTypeByUserId() {
+export function getAllType() {
   return request({
-    url: '/articleLabel/getAllTypeByUserId',
-    method: 'post',
-    data: {
-      id: 1
-    }
+    url: '/articleLabel/getAllType',
+    method: 'post'
   })
 }
 

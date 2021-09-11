@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {getArticleById, getMostVisits} from "../../../api/article";
+import {getArticleById, getMostPV} from "../../../api/article";
 import {getAllLabel} from "../../../api/article-label";
 import {getTargetComments} from "../../../api/comment";
 import {getSundry} from "../../../api/sys";
@@ -24,7 +24,7 @@ export default {
     let [articleDetail, labels, mostVisits, comments, sundry] = await Promise.all([
       getArticleById(params.id),
       getAllLabel(),
-      getMostVisits(),
+      getMostPV(),
       getTargetComments('ARTICLE', 'PASS', Number(params.id)),
       getSundry()
     ])

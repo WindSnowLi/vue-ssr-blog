@@ -1,14 +1,16 @@
 <template>
-  <mavon-editor style="background-color: rgba(255, 255, 255, 0.5); border: none;"
-                :value="md"
-                :subfield="false"
-                :defaultOpen="'preview'"
-                :toolbarsFlag="false"
-                :editable="false"
-                :box-shadow="false"
-                :scrollStyle="true"
-                :ishljs="true"
-                code-style="monokai"/>
+  <mavon-editor
+    style="background-color: rgba(255, 255, 255, 0.5); border: none;"
+    :value="md"
+    :subfield="false"
+    :default-open="'preview'"
+    :toolbars-flag="false"
+    :editable="false"
+    :box-shadow="false"
+    :scroll-style="true"
+    :ishljs="true"
+    code-style="monokai"
+  />
 </template>
 
 <script>

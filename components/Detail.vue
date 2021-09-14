@@ -30,7 +30,7 @@
                     <li class="meta-date"><a href="#">{{ articleDetail.article.createTime }}</a></li>
                     <li class="meta-date">
                       <fa :icon="['fas', 'eye']" />
-                      <a href="#">{{ articleDetail.article.visitsCount }}</a>
+                      <a href="#">{{ articleDetail.article.pv }}</a>
                     </li>
                   </ul>
                 </div>

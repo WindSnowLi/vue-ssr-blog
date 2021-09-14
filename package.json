@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=dev nuxt",
-    "start": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=production nuxt start",
-    "build": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=production nuxt build",
-    "test": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=test nuxt generate",
-    "generate": "cross-env BASE_URL=http://127.0.0.1:8888/api NODE_ENV=generate nuxt generate"
+    "dev": "cross-env BASE_URL=http://127.0.0.1:9000/api NODE_ENV=dev nuxt",
+    "start": "cross-env BASE_URL=http://127.0.0.1:9000/api NODE_ENV=production nuxt start",
+    "build": "cross-env BASE_URL=http://127.0.0.1:9000/api NODE_ENV=production nuxt build",
+    "test": "cross-env BASE_URL=http://127.0.0.1:9000/api NODE_ENV=test nuxt generate",
+    "generate": "cross-env BASE_URL=http://127.0.0.1:9000/api NODE_ENV=generate nuxt generate"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.3",

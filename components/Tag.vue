@@ -14,7 +14,7 @@
               <div class="cat-title" style="text-align:center">
                 <fa :icon="['fas', 'tag']" />&ensp;{{ label.name }}（{{ label.num }}）
                 <br>
-                <fa :icon="['fas', 'eye']" />&ensp;{{ label.visitsCount }}
+                <fa :icon="['fas', 'eye']" />&ensp;{{ label.pv }}
               </div>
             </nuxt-link>
           </div>

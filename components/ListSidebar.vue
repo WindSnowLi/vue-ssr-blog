@@ -1,3 +1,4 @@
+const WOW; const WOW;
 <template>
   <section class="list-sidebar pb-10">
     <!-- Section title -->
@@ -10,7 +11,7 @@
       <div
         v-for="(item,i) in articles"
         :key="i"
-        :class="[item.article.coverPic === &quot;&quot;?&quot;post-has-no-thumb&quot;:&quot;post-has-right-thumb&quot;,&quot;post-default&quot;, &quot;panel&quot;, &quot;wow&quot;, &quot;bounceInDown fadeIn&quot;]"
+        :class="getCoverPicClass(item.article.coverPic)"
       >
         <div class="d-flex flex-wrap">
           <div class="post-thumb  panel">
@@ -52,13 +53,13 @@
               <li class="meta-date"><a href="#">{{ item.article.createTime }}</a></li>
               <li class="meta-date">
                 <fa :icon="['fas', 'eye']" />
-                <a href="#">{{ item.article.visitsCount }}</a>
+                <a href="#">{{ item.article.pv }}</a>
               </li>
             </ul>
             <!-- Post Desc -->
             <div class="desc">
               <p>
-                {{ item.article.summary.substring(0,50) }}...
+                {{ item.article.summary.substring(0, 50) }}...
               </p>
             </div>
           </div>
@@ -71,9 +72,11 @@
 
 <script>
 import 'animate.css'
+
 if (process.browser) { // 在这里根据环境引入wow.js
   var { WOW } = require('wowjs')
 }
+
 export default {
   name: 'ListSidebar',
   props: {
@@ -84,14 +87,30 @@ export default {
     },
     title: {
       type: String,
-      required: false
+      default: ''
     }
   },
   watch: {
     articles() {
       this.$nextTick(() => { // 在dom渲染完后,再执行动画
-         		new WOW().init()
+        new WOW().init()
       })
+    }
+  },
+  methods: {
+    // 使用ESlint插件后直接在使用数组有点问题
+    getCoverPicClass(link) {
+      let str = ''
+      if (link) {
+        str += 'post-has-right-thumb '
+      } else {
+        str += 'post-has-no-thumb '
+      }
+      const cla = ['post-default', 'panel', 'wow', 'bounceInDown fadeIn']
+      for (let i = 0; i < cla.length; i++) {
+        str += cla[i] + ' '
+      }
+      return str
     }
   }
 }

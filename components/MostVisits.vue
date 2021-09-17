@@ -7,11 +7,11 @@
     <!-- 组件标题结束 -->
 
     <!-- 组件内容 -->
-    <div v-for="(item,i) in articles" :key="i" class="widget-content" :value="item">
+    <div v-for="(item,i) in articles" :key="i" class="widget-content">
       <!-- Single Post -->
       <div class="wrp-cover panel">
         <!-- Post Thumbnail -->
-        <div class="post-thumb">
+        <div v-if="item.article.coverPic" class="post-thumb">
           <router-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
             <img :src="item.article.coverPic" alt="" class="img-fluid">
           </router-link>

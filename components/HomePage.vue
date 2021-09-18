@@ -2,12 +2,8 @@
   <div class="container pt-40 pb-90">
     <div class="row">
       <div class="col-lg-8">
-        <!-- 最近热门 -->
-        <list-sidebar :articles="recentArticles" />
-        <!-- 最近热门结束  -->
-
         <!-- 历史记录 -->
-        <list-sidebar title="历史记录" :articles="historyArticles" />
+        <list-sidebar :articles="historyArticles" />
         <!-- 历史记录结束 -->
 
         <!-- 分页 -->
@@ -15,7 +11,7 @@
         <!-- 分页结束 -->
       </div>
       <!-- 侧边栏信息 -->
-      <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" />
+      <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" :recent-art="recentArticles" />
       <!-- 侧边栏信息结束 -->
     </div>
   </div>

@@ -7,8 +7,12 @@
         <author-widget :user="user" />
         <!-- 作者组件结束 -->
 
+        <!-- 最近更新 -->
+        <art-sidebar :articles="mostVisits" title="最多访问" />
+        <!-- 最近更新结束 -->
+
         <!-- 最多访问组件 -->
-        <most-visits :articles="mostVisits" />
+        <art-sidebar :articles="recentArt" title="最近更新" />
         <!-- 最多访问组件结束 -->
 
         <!-- 标签组件 -->
@@ -21,13 +25,13 @@
 
 <script>
 import AuthorWidget from './AuthorWidget'
-import MostVisits from './MostVisits'
 import TabWidget from './TabWidget'
+import ArtSidebar from './ArtSidebar'
 export default {
   name: 'MySidebar',
   components: {
+    ArtSidebar,
     AuthorWidget,
-    MostVisits,
     TabWidget
   },
   props: {
@@ -36,6 +40,10 @@ export default {
       required: true
     },
     mostVisits: {
+      type: Array,
+      required: true
+    },
+    recentArt: {
       type: Array,
       required: true
     },

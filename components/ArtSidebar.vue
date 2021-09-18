@@ -2,14 +2,14 @@
   <div class="widget widget-recent-post panel">
     <!-- 组件标题 -->
     <h4 class="widget-title">
-      最多访问
+      {{ title }}
     </h4>
     <!-- 组件标题结束 -->
 
     <!-- 组件内容 -->
     <div v-for="(item,i) in articles" :key="i" class="widget-content">
       <!-- Single Post -->
-      <div class="wrp-cover panel">
+      <div class="wrp-cover panel" style="margin-top: 1px;">
         <!-- Post Thumbnail -->
         <div v-if="item.article.coverPic" class="post-thumb">
           <router-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
@@ -19,8 +19,10 @@
         <!-- Post Title -->
         <div class="post-title">
           <router-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
-            {{ item.article.title }}
+            {{ item.article.title }} &nbsp;
           </router-link>
+          <fa :icon="['fas', 'eye']" />
+          {{ item.article.pv }}
         </div>
       </div>
       <br>
@@ -31,12 +33,20 @@
 
 <script>
 export default {
-  name: 'MostVisits',
+  name: 'ArtSidebar',
   props: {
     articles: {
       type: Array,
+      required: true
+    },
+    title: {
+      type: String,
       required: true
     }
   }
 }
 </script>
+
+<style scoped>
+
+</style>

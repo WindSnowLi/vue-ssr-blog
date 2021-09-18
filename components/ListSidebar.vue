@@ -1,8 +1,7 @@
-const WOW; const WOW;
 <template>
   <section class="list-sidebar pb-10">
     <!-- Section title -->
-    <div v-if="title != null" class="section-title">
+    <div v-if="title" class="section-title">
       <h2>{{ title }}</h2>
     </div>
     <!-- End of Section title -->

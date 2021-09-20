@@ -3566,8 +3566,22 @@ blockquote cite {
 }
 
 .widget.widget-about .widget-content .author-image {
-  max-width: 224px;
+  max-width: 200px;
   margin: 0 auto 20px auto;
+}
+
+.widget.widget-about .widget-content .author-image .img-fluid {
+  cursor: pointer;
+  transition: all 0.6s;
+  margin: 0 auto 20px auto;
+  width: 200px;
+  height: 200px;
+  float: left;
+  border-radius: 100%;
+}
+
+.widget.widget-about .widget-content .author-image img:hover {
+  transform: scale(1.1);
 }
 
 .widget.widget-about .widget-content .author-name {

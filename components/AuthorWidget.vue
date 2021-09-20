@@ -4,7 +4,9 @@
     <div class="widget-content">
       <!-- 作者图片 -->
       <div class="author-image">
-        <nuxt-link :to="{ name: 'about' }"><img :src="user.avatar" alt="" class="img-fluid"></nuxt-link>
+        <nuxt-link :to="{ name: 'about' }">
+          <img :src="user.avatar" alt="" class="img-fluid panel">
+        </nuxt-link>
       </div>
 
       <!-- 作者名字 -->

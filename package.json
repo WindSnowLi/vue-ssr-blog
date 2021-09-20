@@ -1,6 +1,6 @@
 {
   "name": "vue-ssr-blog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "cross-env BASE_URL=http://127.0.0.1:9000/api NODE_ENV=dev nuxt",

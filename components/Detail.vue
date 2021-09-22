@@ -72,7 +72,12 @@
                 </nuxt-link>
               </div>
             </div>
-            <comment v-if="articleComment" :comments="comments" session-type="ARTICLE" :target-id="Number(this.$route.params.id)" />
+            <comment
+              v-if="articleComment && (!articleDetail.article.commentDisabled)"
+              :comments="comments"
+              session-type="ARTICLE"
+              :target-id="Number(this.$route.params.id)"
+            />
           </div>
         </div>
         <!-- 侧边栏信息 -->

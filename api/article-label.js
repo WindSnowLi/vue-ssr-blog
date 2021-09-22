@@ -1,4 +1,4 @@
-import request from "../utils/request"
+import request from '../utils/request'
 
 /**
  * 通过分类ID获取分类

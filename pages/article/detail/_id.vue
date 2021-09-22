@@ -1,27 +1,26 @@
 <template>
   <detail
-    :articleDetail="articleDetail"
+    :article-detail="articleDetail"
     :user="user"
     :labels="labels"
-    :mostVisits="mostVisits"
+    :most-visits="mostVisits"
     :comments="comments"
     :article-comment="sundry.articleComment"
-  >
-  </detail>
+  />
 </template>
 
 <script>
-import {getArticleById, getMostPV} from "../../../api/article";
-import {getAllLabel} from "../../../api/article-label";
-import {getTargetComments} from "../../../api/comment";
-import {getSundry} from "../../../api/sys";
+import { getArticleById, getMostPV } from '../../../api/article'
+import { getAllLabel } from '../../../api/article-label'
+import { getTargetComments } from '../../../api/comment'
+import { getSundry } from '../../../api/sys'
 
 export default {
   layout: 'index',
   async asyncData({
-                    params
-                  }) {
-    let [articleDetail, labels, mostVisits, comments, sundry] = await Promise.all([
+    params
+  }) {
+    const [articleDetail, labels, mostVisits, comments, sundry] = await Promise.all([
       getArticleById(params.id),
       getAllLabel(),
       getMostPV(),
@@ -44,14 +43,14 @@ export default {
         name: 'keywords',
         content: this.articleDetail.article.title
       },
-        {
-          name: 'author',
-          content: this.user.nickname
-        },
-        {
-          name: 'description',
-          content: this.articleDetail.article.summary
-        }
+      {
+        name: 'author',
+        content: this.user.nickname
+      },
+      {
+        name: 'description',
+        content: this.articleDetail.article.summary
+      }
       ]
     }
   }

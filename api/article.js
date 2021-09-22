@@ -1,4 +1,4 @@
-import request from '../utils/request.js';
+import request from '../utils/request.js'
 
 /**
  * 获取所有文章
@@ -8,8 +8,8 @@ export function getArticlesByPage(page, limit) {
     url: '/article/getArticlesByPage',
     method: 'post',
     data: {
-      page: page,
-      limit: limit,
+      page,
+      limit,
       sort: '-id',
       status: 'PUBLISHED'
     }

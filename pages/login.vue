@@ -71,6 +71,7 @@ export default {
     }
   },
   mounted() {
+    // eslint-disable-next-line nuxt/no-env-in-hooks
     if (process.client) {
       // 加载Gitee登录Url
       if (this.giteeStatus) {
@@ -95,8 +96,11 @@ export default {
   methods: {
     getGiteeLoginUrl() {
       const encodeCallback = encodeURIComponent(window.location.protocol + '//' + window.location.host + window.location.pathname)
+      // eslint-disable-next-line no-template-curly-in-string
       let url = 'https://gitee.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code'
+        // eslint-disable-next-line no-template-curly-in-string
         .replace('${redirect_uri}', encodeCallback)
+        // eslint-disable-next-line no-template-curly-in-string
         .replace('${client_id}', this.clientId)
       if (this.$route.query.redirect) {
         url += '&state=' + this.$route.query.redirect

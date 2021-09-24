@@ -13,9 +13,12 @@
     <main>
       <nuxt />
     </main>
-    <footer-line :icp="sysConfig.filing_icp" :security="sysConfig.filing_security" />
+    <footer-line
+      :icp="sysConfig.filing_icp"
+      :security="sysConfig.filing_security"
+    />
     <back-top />
-    <div v-if="uiConfig.footer" v-append="uiConfig.footer" />
+    <div v-html="uiConfig.include" />
   </div>
 </template>
 

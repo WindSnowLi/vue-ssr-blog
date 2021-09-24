@@ -1,10 +1,13 @@
 <template>
-  <home-page
-    :user="user"
-    :most-visits="mostVisits"
-    :labels="labels"
-    :recent-articles="recentArticles"
-  />
+  <div>
+    <home-page
+      :user="user"
+      :most-visits="mostVisits"
+      :labels="labels"
+      :recent-articles="recentArticles"
+    />
+    <div v-html="uiConfig.footer" />
+  </div>
 </template>
 
 <script>
@@ -13,20 +16,24 @@ import {
 } from '../api/user'
 import { getMostPV, getRecentArticles } from '../api/article'
 import { getAllLabel } from '../api/article-label'
+import { getUiConfig } from '../api/sys'
+
 export default {
   layout: 'index',
   async asyncData() {
-    const [user, mostVisits, labels, recentArticles] = await Promise.all([
+    const [user, mostVisits, labels, recentArticles, uiConfig] = await Promise.all([
       getVisitorInfo(),
       getMostPV(),
       getAllLabel(),
-      getRecentArticles()
+      getRecentArticles(),
+      getUiConfig()
     ])
     return {
       user,
       mostVisits,
       labels,
-      recentArticles: recentArticles.items
+      recentArticles: recentArticles.items,
+      uiConfig
     }
   },
   head() {
@@ -50,6 +57,6 @@ export default {
 }
 </script>
 <style>
-  @import "../static/css/style.css";
-  @import "../static/css/custom.css";
+@import "../static/css/style.css";
+@import "../static/css/custom.css";
 </style>

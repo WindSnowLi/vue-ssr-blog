@@ -6,7 +6,7 @@
           <div class="footer-social">
             <div v-if="security" class="flex-row text-center">
               <a style="color: #000000;" target="_blank" :href="getSecurity(security)">
-                <img src="/images/gongan.png">
+                <img src="/images/gongan.png" alt="公安">
                 {{ security }}
               </a>
             </div>
@@ -27,10 +27,12 @@ export default {
   name: 'FooterLine',
   props: {
     icp: {
-      type: String
+      type: String,
+      default: ''
     },
     security: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   methods: {

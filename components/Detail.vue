@@ -3,8 +3,8 @@
     <page-title :route-list="getPageTitle(articleDetail.article)" />
     <div class="container pt-40 pb-90">
       <div class="row">
-        <div class="col-lg-8 pb-80 panel" style="margin-bottom: auto">
-          <div class="post-details-cover">
+        <div class="col-md-10 offset-md-1 panel" style="margin-bottom: auto">
+          <div class="post-details-cover post-has-full-width-image">
             <!-- 封面介绍结束 -->
             <div class="post-thumb-cover" style="text-align: center;">
               <!-- 文章元信息 -->
@@ -80,9 +80,6 @@
             />
           </div>
         </div>
-        <!-- 侧边栏信息 -->
-        <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" />
-        <!-- 侧边栏信息结束 -->
       </div>
     </div>
   </div>
@@ -95,18 +92,6 @@ export default {
   props: {
     articleDetail: {
       type: Object,
-      required: true
-    },
-    user: {
-      type: Object,
-      required: true
-    },
-    labels: {
-      type: Array,
-      required: true
-    },
-    mostVisits: {
-      type: Array,
       required: true
     },
     articleComment: {

@@ -46,7 +46,9 @@
             <!-- Post Meta -->
             <ul class="nav meta align-items-center">
               <li class="meta-author">
-                <nuxt-link :to="{ name: 'about' }"><img :src="item.user.avatar" alt="" class="img-fluid"></nuxt-link>
+                <nuxt-link :to="{ name: 'about' }">
+                  <img :src="item.user.avatar" alt="" class="img-fluid">
+                </nuxt-link>
                 <a href="#">{{ item.user.nickname }}</a>
               </li>
               <li class="meta-date"><a href="#">{{ item.article.createTime }}</a></li>

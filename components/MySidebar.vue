@@ -12,7 +12,7 @@
         <!-- 最近更新结束 -->
 
         <!-- 最多访问组件 -->
-        <art-sidebar :articles="recentArt" title="最近更新" />
+        <art-sidebar :articles="recentArticles" title="最近更新" />
         <!-- 最多访问组件结束 -->
 
         <!-- 标签组件 -->
@@ -43,7 +43,7 @@ export default {
       type: Array,
       required: true
     },
-    recentArt: {
+    recentArticles: {
       type: Array,
       required: true
     },

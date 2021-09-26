@@ -120,5 +120,6 @@ export default {
       result.html = $.html()
     }
   },
+  target: 'static', // default is 'server'
   sitemap
 }

@@ -11,7 +11,7 @@
         <!-- 分页结束 -->
       </div>
       <!-- 侧边栏信息 -->
-      <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" :recent-art="recentArticles" />
+      <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" :recent-articles="recentArticles" />
       <!-- 侧边栏信息结束 -->
     </div>
   </div>

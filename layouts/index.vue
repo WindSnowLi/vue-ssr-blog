@@ -26,7 +26,7 @@
 import HeaderBar from '../components/HeaderBar'
 import BackTop from '../components/BackTop'
 import FooterLine from '../components/FooterLine'
-import { getSysConfig, getUiConfig } from '../api/sys'
+import { getFixedConfig, getUiConfig } from '../api/sys'
 import { background } from '../plugins/js/background'
 
 export default {
@@ -55,7 +55,7 @@ export default {
       _self.uiConfig.background_list = imgList
       background(_self.uiConfig.background_list, 'background-list')
     })
-    getSysConfig().then((response) => {
+    getFixedConfig().then((response) => {
       _self.sysConfig = response.sys
     })
   }

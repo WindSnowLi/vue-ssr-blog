@@ -15,17 +15,6 @@ export function getUiConfig(_id) {
 }
 
 /**
- * 获取系统UI配置
- */
-export function getSysConfig() {
-  return request({
-    url: '/sys/getSysConfig',
-    method: 'post',
-    data: {}
-  })
-}
-
-/**
  * 获取Gitee的应用程序ID
  */
 export function getGiteeClientId() {
@@ -36,11 +25,11 @@ export function getGiteeClientId() {
 }
 
 /**
- * 获取杂项设置,含格式描述
+ * 获取系统基础配置，包含表单描述信息
  */
-export function getSundry() {
+export function getFixedConfig() {
   return request({
-    url: '/sys/getSundry',
+    url: '/sys/getFixedConfig',
     method: 'post'
   })
 }

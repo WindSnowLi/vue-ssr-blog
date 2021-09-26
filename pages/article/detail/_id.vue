@@ -1,39 +1,31 @@
 <template>
   <detail
     :article-detail="articleDetail"
-    :user="user"
-    :labels="labels"
-    :most-visits="mostVisits"
     :comments="comments"
-    :article-comment="sundry.articleComment"
+    :article-comment="baseConfig.articleComment"
   />
 </template>
 
 <script>
-import { getArticleById, getMostPV } from '../../../api/article'
-import { getAllLabel } from '../../../api/article-label'
+import { getArticleById } from '../../../api/article'
 import { getTargetComments } from '../../../api/comment'
-import { getSundry } from '../../../api/sys'
+import { getFixedConfig } from '../../../api/sys'
 
 export default {
   layout: 'index',
   async asyncData({
     params
   }) {
-    const [articleDetail, labels, mostVisits, comments, sundry] = await Promise.all([
+    const [articleDetail, comments, baseConfig] = await Promise.all([
       getArticleById(params.id),
-      getAllLabel(),
-      getMostPV(),
       getTargetComments('ARTICLE', 'PASS', Number(params.id)),
-      getSundry()
+      getFixedConfig()
     ])
     return {
       articleDetail,
       user: articleDetail.user,
-      labels,
-      mostVisits,
       comments,
-      sundry: sundry.sundry
+      baseConfig: baseConfig.sys
     }
   },
   head() {

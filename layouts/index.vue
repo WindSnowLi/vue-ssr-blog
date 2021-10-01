@@ -18,7 +18,7 @@
       :security="sysConfig.filing_security"
     />
     <back-top />
-    <div v-html="uiConfig.include" />
+    <div v-append="uiConfig.include" />
   </div>
 </template>
 

@@ -12,6 +12,6 @@ export function background(imgList, id) {
       duration + 's linear infinite ' + i * 6 + "s;'></span></li>"
   }
   if (process.client) {
-    document.getElementById('background-list').innerHTML = rs
+    document.getElementById(id).innerHTML = rs
   }
 }

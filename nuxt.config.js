@@ -65,6 +65,10 @@ export default {
   {
     src: '~plugins/vue-append.js',
     ssr: false
+  },
+  {
+    src: '~plugins/js/utils.js',
+    ssr: false
   }
   ],
 

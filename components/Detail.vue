@@ -42,22 +42,69 @@
             <!-- Post Content -->
             <mark-down :md="articleDetail.article.content" />
             <!-- End of Post Content -->
-
-            <!-- 标签 -->
-            <div class="post-all-tags">
-              <template v-for="(label,i) in articleDetail.article.labels">
-                <nuxt-link
-                  :key="i"
-                  class="badge badge-info"
-                  :value="label"
-                  :to="{ name: 'article-tag-id', params: { id: label.id } }"
+            <div v-if="articleDetail.article.publishType === 'ORIGINAL'" class="declare">
+              <div class="author">本文作者：{{ articleDetail.user.nickname }}</div>
+              <div class="create-time">发布时间：{{ articleDetail.article.createTime }}</div>
+              <div class="update-time">最后更新：{{ articleDetail.article.updateTime }}</div>
+              <div class="article-titles">
+                本文标题：
+                <a
+                  href="https://www.yansheng.xyz/article/3d67529f.html"
+                  :title="articleDetail.article.title"
+                  target="_blank"
                 >
-                  <fa :icon="['fas', 'tag']" />
-                  {{ label.name }}
-                </nuxt-link>
-              </template>
+                  {{ articleDetail.article.title }}
+                </a>
+              </div>
+              <div class="article-url">
+                原文链接：
+                <a
+                  href="https://www.yansheng.xyz/article/3d67529f.html"
+                  :title="articleDetail.article.title"
+                  target="_blank"
+                >{{ getPageUrl() }}
+                </a>
+              </div>
+              <div
+                class="copyright"
+              >版权声明：本文为「 {{ articleDetail.user.nickname }} 」原创，依据
+                <a
+                  rel="license"
+                  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+                  title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议"
+                >
+                  CC BY-NC-SA 4.0
+                </a>许可证进行授权，转载请附上出处链接及本声明。
+              </div>
+              <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+              >
+                <img
+                  alt="知识共享许可协议"
+                  style="border-width:0"
+                  src="https://myblog12.qiniu.yansheng.xyz/picgo/by-nc-sa-4.0-88x31.png"
+                >
+              </a>
+            </div>
+            <!-- 标签 -->
+            <div class="article-tags">
+              <fa :icon="['fas', 'tag']" class="icon" />
+              <ul class="article-tag-list">
+                <li v-for="(label,i) in articleDetail.article.labels" :key="label">
+                  <nuxt-link
+                    :key="i"
+                    class="color1"
+                    :value="label"
+                    :to="{ name: 'article-tag-id', params: { id: label.id } }"
+                  >
+                    {{ label.name }}
+                  </nuxt-link>
+                </li>
+              </ul>
             </div>
             <!-- 标签结束 -->
+
             <div v-if="articleDetail.next || articleDetail.pre" class="previous-next-links">
               <div v-if="articleDetail.pre" class="previous-design-link">
                 <nuxt-link :to="{ name:'article-detail-id',params:{ id: articleDetail.pre.id } }">
@@ -86,6 +133,7 @@
 </template>
 
 <script>
+import { getPageUrl } from '../plugins/js/utils'
 
 export default {
   name: 'Detail',
@@ -110,6 +158,9 @@ export default {
     }
   },
   methods: {
+    getPageUrl() {
+      return getPageUrl()
+    },
     getPageTitle(article) {
       return [{
         title: '首页',
@@ -140,28 +191,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.previous-next-links {
-  line-height: 24px;
-  overflow: hidden;
-  padding: 10px 20px;
-  font-size: 15px;
-  background-color: rgba(217, 237, 247, 0.8);
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-.previous-next-links a {
-  color: #3f51b5;
-}
-
-.previous-design-link {
-  float: left;
-}
-
-.next-design-link {
-  float: right;
-}
-
-</style>

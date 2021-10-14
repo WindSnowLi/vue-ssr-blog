@@ -49,7 +49,7 @@
               <div class="article-titles">
                 本文标题：
                 <a
-                  href="https://www.yansheng.xyz/article/3d67529f.html"
+                  :href="getPageUrl()"
                   :title="articleDetail.article.title"
                   target="_blank"
                 >
@@ -59,7 +59,7 @@
               <div class="article-url">
                 原文链接：
                 <a
-                  href="https://www.yansheng.xyz/article/3d67529f.html"
+                  :href="getPageUrl()"
                   :title="articleDetail.article.title"
                   target="_blank"
                 >{{ getPageUrl() }}

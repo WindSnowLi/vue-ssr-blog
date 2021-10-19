@@ -103,6 +103,7 @@ export default {
   props: {
     sessionType: {
       type: String,
+      default: '',
       require: true
     },
     targetId: {
@@ -111,7 +112,7 @@ export default {
     },
     comments: {
       type: Array,
-      default: []
+      default: () => []
     }
   },
   data() {

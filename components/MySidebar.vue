@@ -18,6 +18,9 @@
         <!-- 标签组件 -->
         <tab-widget :labels="labels" />
         <!-- 标签组件结束 -->
+        <!-- 最新评论 -->
+        <aside-new-comments />
+        <!-- 最新评论结束 -->
       </div>
     </div>
   </div>
@@ -27,9 +30,11 @@
 import AuthorWidget from './AuthorWidget'
 import TabWidget from './TabWidget'
 import ArtSidebar from './ArtSidebar'
+import AsideNewComments from './AsideNewComments'
 export default {
   name: 'MySidebar',
   components: {
+    AsideNewComments,
     ArtSidebar,
     AuthorWidget,
     TabWidget

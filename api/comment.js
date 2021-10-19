@@ -43,3 +43,17 @@ export function addComment(token, sessionType, content, targetId = null, parentI
     }
   })
 }
+
+/**
+ * 获取所有文章最新的评论
+ * @param limit 条数限制
+ */
+export function getRecentComment(limit) {
+  return request({
+    url: '/comment/getRecentComment',
+    method: 'post',
+    data: {
+      content: limit
+    }
+  })
+}

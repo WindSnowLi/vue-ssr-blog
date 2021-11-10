@@ -35,13 +35,13 @@ export default {
   /deep/ .page-link {
     margin: 5px;
     border-radius: 5px;
-    color: #b8039a;
+    color: #b8d1ee;
     background-color: rgba(255, 255, 255, 0.5);
     border: none;
   }
 
   /deep/ .page-item.active .page-link {
-    background-color: rgba(253, 33, 140, 0.5);
+    background-color: rgba(33, 161, 253, 0.5);
     border: none;
   }
 
@@ -53,17 +53,17 @@ export default {
 
   /deep/ .page-item.active .page-link:hover {
     margin: 5px;
-    color: rgba(253, 18, 30, 0.5);
-    background-color: rgba(253, 18, 30, 0.5);
+    color: rgba(233, 242, 250, 0.5);
+    background-color: rgba(18, 163, 253, 0.5);
     border: none;
   }
 
   /deep/ span.page-item {
-    background-color: rgba(253, 18, 30, 0.5);
+    background-color: rgba(18, 182, 253, 0.5);
   }
 
   /deep/ .page-link:hover {
-    color: #b82578;
-    background-color: rgba(255, 66, 240, 0.5);
+    color: #ffffff;
+    background-color: rgba(66, 120, 255, 0.5);
   }
 </style>

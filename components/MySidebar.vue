@@ -1,12 +1,8 @@
 <template>
-  <div class="col-lg-4">
+  <div class="col-lg-3">
     <div class="pt-88">
 
       <div class="my-sidebar">
-        <!-- 作者组件 -->
-        <author-widget :user="user" />
-        <!-- 作者组件结束 -->
-
         <!-- 最近更新 -->
         <art-sidebar :articles="mostVisits" title="最多访问" />
         <!-- 最近更新结束 -->
@@ -27,7 +23,6 @@
 </template>
 
 <script>
-import AuthorWidget from './AuthorWidget'
 import TabWidget from './TabWidget'
 import ArtSidebar from './ArtSidebar'
 import AsideNewComments from './AsideNewComments'
@@ -36,14 +31,9 @@ export default {
   components: {
     AsideNewComments,
     ArtSidebar,
-    AuthorWidget,
     TabWidget
   },
   props: {
-    user: {
-      type: Object,
-      required: true
-    },
     mostVisits: {
       type: Array,
       required: true

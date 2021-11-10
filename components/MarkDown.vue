@@ -43,7 +43,7 @@ export default {
   line-height: 1.1;
   padding-top: 16px;
   margin-bottom: 4px;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #4393cb;
 }
 
 /deep/ .v-show-content h2 {
@@ -54,6 +54,7 @@ export default {
   line-height: 1.5;
   background-color: rgba(255, 255, 255, 0.51);
   border-left: 5px solid rgb(0, 191, 255);
+  border-bottom: 2px solid #4393cb;
 }
 
 /deep/ .v-show-content pre {

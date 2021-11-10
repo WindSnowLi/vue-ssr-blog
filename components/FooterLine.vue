@@ -1,5 +1,5 @@
 <template>
-  <footer v-if="icp || security" class="footer-container d-flex align-items-center panel" style="margin-top: 20px;">
+  <footer v-if="icp || security" class="footer-container d-flex align-items-center panel transparent-part" style="margin-top: 20px;">
     <div class="container">
       <div class="row align-items-center footer">
         <div class="col-md-4 text-center text-md-left order-md-1 order-2">

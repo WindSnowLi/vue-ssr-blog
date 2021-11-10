@@ -1,0 +1,79 @@
+.type-tag-list {
+  list-style: none;
+}
+.type-tag-list .clearfix {
+  position: relative;
+}
+.type-tag-list li {
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: block;
+}
+.type-tag-list li a {
+  background: #fff;
+}
+.type-tag-list li a {
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  -webkit-transition: .2s;
+  transition: .2s;
+  display: block;
+  position: relative;
+}
+.type-tag-list .eo-bg {
+  background: #fff;
+}
+.type-tag-list li a .description {
+  color: #212121;
+}
+.type-tag-list li a .description {
+  font-size: 14px;
+}
+.type-tag-list li a .description {
+  min-height: 70px;
+  padding: 20px 0 0;
+  color: #333;
+}
+.type-tag-list li a .type-tag-row {
+  padding: 40px 0;
+  position: relative;
+}
+.type-tag-list li a .type-tag-row .name {
+  color: #212121;
+}
+.type-tag-list li a .type-tag-row .name {
+  font-size: 28px;
+}
+.type-tag-list li a .type-tag-row .name {
+  color: #333;
+  font-weight: 700;
+  position: relative;
+}
+.type-tag-list li a .type-tag-row .articles {
+  color: #bdbdbd;
+}
+.type-tag-list li a .type-tag-row .articles {
+  height: 80px;
+  line-height: 80px;
+  font-size: 80px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-family: WeChatNumber-151125,sans-serif;
+  color: #939898;
+}
+
+@media screen and (min-width: 1150px)
+{
+  .type-tag-list li {
+    width: 50%;
+    float: left;
+  }
+}

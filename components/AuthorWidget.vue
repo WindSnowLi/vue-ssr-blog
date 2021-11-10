@@ -1,11 +1,11 @@
 <template>
-  <div class="widget widget-about panel">
+  <div class="widget widget-about">
     <!-- 组件内容 -->
     <div class="widget-content">
       <!-- 作者图片 -->
       <div class="author-image">
-        <nuxt-link :to="{ name: 'about' }">
-          <img :src="user.avatar" alt="" class="img-fluid panel">
+        <nuxt-link style="width: 100%; height: 100%" :to="{ name: 'about' }">
+          <img :src="user.avatar" alt="头像" class="img-fluid">
         </nuxt-link>
       </div>
 

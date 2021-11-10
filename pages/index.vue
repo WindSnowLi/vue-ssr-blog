@@ -1,7 +1,6 @@
 <template>
   <div>
     <home-page
-      :user="user"
       :most-visits="mostVisits"
       :labels="labels"
       :recent-articles="recentArticles"

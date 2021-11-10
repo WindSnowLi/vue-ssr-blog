@@ -8,24 +8,13 @@
 
     <!-- 组件内容 -->
     <div v-for="(item,i) in articles" :key="i" class="widget-content">
-      <!-- Single Post -->
-      <div class="wrp-cover panel" style="margin-top: 1px;">
-        <!-- Post Thumbnail -->
-        <div v-if="item.article.coverPic" class="post-thumb">
+      <ul class="post-title">
+        <li>
           <router-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
-            <img :src="item.article.coverPic" alt="" class="img-fluid">
+            {{ item.article.title }}
           </router-link>
-        </div>
-        <!-- Post Title -->
-        <div class="post-title">
-          <router-link :to="{ name:'article-detail-id',params:{ id: item.article.id } }">
-            {{ item.article.title }} &nbsp;
-          </router-link>
-          <fa :icon="['fas', 'eye']" />
-          {{ item.article.pv }}
-        </div>
-      </div>
-      <br>
+        </li>
+      </ul>
     </div>
     <!-- 组件内容结束 -->
   </div>

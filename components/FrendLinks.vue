@@ -19,7 +19,7 @@
     <!-- Newsletter -->
     <!-- Overlay -->
     <div class="container">
-      <div class="pt-20 pb-20 pr-120 pl-120 panel">
+      <div class="pt-20 pb-20 pr-120 pl-120 panel transparent-part">
         <!-- Section title -->
         <div class="section-title text-center">
           <h2>友链申请</h2>

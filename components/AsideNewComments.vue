@@ -55,7 +55,7 @@ li {
 ul.new-comment-list li .title {
   line-height: 22px;
   margin-bottom: 2px;
-  color: #9a9fe5;
+  color: #2fb3ee;
   display: block;
 }
 </style>

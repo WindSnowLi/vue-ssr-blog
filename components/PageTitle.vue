@@ -1,5 +1,5 @@
 <template>
-  <div class="page-title panel">
+  <div class="page-title panel transparent-part">
     <div class="container">
       <h2>{{ title }}</h2>
       <ul class="nav">
@@ -17,6 +17,7 @@ export default {
   props: {
     title: {
       type: String,
+      default: '',
       required: false
     },
     routeList: {

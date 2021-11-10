@@ -6,7 +6,7 @@
     </h4>
     <!-- 组件标题结束 -->
     <!-- 组件内容 -->
-    <tag-cloud :labels="tags" :tags-num="this.tags.length" />
+    <tag-cloud :labels="tags" :tags-num="tags.length" />
     <!-- 组件内容结束 -->
   </div>
 </template>

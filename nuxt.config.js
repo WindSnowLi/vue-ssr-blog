@@ -69,6 +69,10 @@ export default {
   {
     src: '~plugins/js/utils.js',
     ssr: false
+  },
+  {
+    src: '~plugins/js/slider/main.js',
+    ssr: false
   }
   ],
 

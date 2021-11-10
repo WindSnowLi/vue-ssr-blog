@@ -1,7 +1,7 @@
 <template>
   <div class="container pt-120 pb-90">
     <div class="row">
-      <div v-for="(article,i) in articles" :key="i" class="col-md-4 col-sm-6 panel wow bounceInDown fadeIn">
+      <div v-for="(article,i) in articles" :key="i" class="col-md-4 col-sm-6 panel empty-padding wow bounceInDown fadeIn">
         <!-- 文章 -->
         <div class="post-default">
           <div class="post-thumb">

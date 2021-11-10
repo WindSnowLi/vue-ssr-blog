@@ -1,7 +1,7 @@
 <template>
   <div class="container pt-40 pb-90">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-lg-9">
         <!-- 历史记录 -->
         <list-sidebar :articles="historyArticles" />
         <!-- 历史记录结束 -->
@@ -11,7 +11,7 @@
         <!-- 分页结束 -->
       </div>
       <!-- 侧边栏信息 -->
-      <my-sidebar :user="user" :most-visits="mostVisits" :labels="labels" :recent-articles="recentArticles" />
+      <my-sidebar :most-visits="mostVisits" :labels="labels" :recent-articles="recentArticles" />
       <!-- 侧边栏信息结束 -->
     </div>
   </div>
@@ -31,10 +31,6 @@ export default {
     MySidebar
   },
   props: {
-    user: {
-      type: Object,
-      required: true
-    },
     mostVisits: {
       type: Array,
       required: true
@@ -51,7 +47,7 @@ export default {
   data() {
     return {
       total: 0,
-      limit: 9,
+      limit: 20,
       historyArticles: []
     }
   },

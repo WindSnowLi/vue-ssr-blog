@@ -1,6 +1,11 @@
 <template>
   <div>
-    <section class="hidden-xs">
+    <div v-if="particle">
+      <div v-for="(count) in 300" :key="count" class="circle-container">
+        <div class="circle" />
+      </div>
+    </div>
+    <section v-if="!particle" class="hidden-xs">
       <ul class="cb-slideshow">
         <!-- 背景轮播图功能模块 -->
         <div id="background-list" />
@@ -8,7 +13,7 @@
       </ul>
     </section>
     <!-- Header -->
-    <header-bar :topbar-title="uiConfig.topbar_title" :admin-page="sysConfig.admin_url" />
+    <header-bar :topbar-title="uiConfig.topbar_title" :admin-page="sysConfig.admin_url" :user="user" />
     <!-- End of Header -->
     <main>
       <nuxt />
@@ -28,6 +33,7 @@ import BackTop from '../components/BackTop'
 import FooterLine from '../components/FooterLine'
 import { getFixedConfig, getUiConfig } from '../api/sys'
 import { background } from '../plugins/js/background'
+import { getVisitorInfo } from '../api/user'
 
 export default {
   components: {
@@ -37,8 +43,10 @@ export default {
   },
   data() {
     return {
+      particle: false,
       uiConfig: {},
-      sysConfig: {}
+      sysConfig: {},
+      user: {}
     }
   },
   created() {
@@ -52,12 +60,23 @@ export default {
           imgList.push(element)
         }
       })
-      _self.uiConfig.background_list = imgList
-      background(_self.uiConfig.background_list, 'background-list')
+      if (imgList.length === 0) {
+        _self.particle = true
+      } else {
+        _self.uiConfig.background_list = imgList
+        background(_self.uiConfig.background_list, 'background-list')
+      }
     })
     getFixedConfig().then((response) => {
       _self.sysConfig = response.sys
     })
+    getVisitorInfo().then((response) => {
+      _self.user = response
+    })
   }
 }
 </script>
+
+<style scoped>
+@import "static/css/particle/style.css";
+</style>

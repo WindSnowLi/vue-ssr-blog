@@ -158,16 +158,22 @@
 
 /* 动态背景图结束 */
 
-/* 半透明 */
+/*圆润*/
 
 .panel {
   border-radius: 4px;
-  background-color: rgba(230, 238, 232, 0.5) !important;
+  background-color: #c2c2c2;
   box-shadow: 0 0 5px #c2c2c2;
   -webkit-box-shadow: 0 0 5px #c2c2c2;
   -moz-box-shadow: 0 0 5px #c2c2c2;
   -o-box-shadow: 0 0 5px #c2c2c2;
-  border: none
+  border: none;
+}
+
+.empty-padding {
+  background-clip: content-box;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .panel:hover {
@@ -177,6 +183,15 @@
   -o-box-shadow: 0 0 50px black
 }
 
+/*圆润结束*/
+
+/* 半透明 */
+.transparent-part {
+  background-color: rgba(255, 255, 255, 0.41) !important;
+}
+.transparent-part:hover {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+}
 /* 半透明结束 */
 
 /* 文章作者赘述 */

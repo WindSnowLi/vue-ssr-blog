@@ -162,11 +162,11 @@
 
 .panel {
   border-radius: 4px;
-  background-color: #c2c2c2;
-  box-shadow: 0 0 5px #c2c2c2;
-  -webkit-box-shadow: 0 0 5px #c2c2c2;
-  -moz-box-shadow: 0 0 5px #c2c2c2;
-  -o-box-shadow: 0 0 5px #c2c2c2;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px #ffffff;
+  -webkit-box-shadow: 0 0 5px #ffffff;
+  -moz-box-shadow: 0 0 5px #ffffff;
+  -o-box-shadow: 0 0 5px #ffffff;
   border: none;
 }
 

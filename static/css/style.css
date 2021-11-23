@@ -3841,6 +3841,7 @@ blockquote cite {
   animation-delay: 0.1s;
 }
 
+.list-item .information .title,
 ul.new-comment-list li .single-line {
   text-decoration: none;
   text-overflow: ellipsis;

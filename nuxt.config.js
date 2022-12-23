@@ -89,22 +89,6 @@ export default {
     'nuxt-fontawesome',
     '@nuxtjs/sitemap'
   ],
-  fontawesome: {
-    component: 'fa',
-    imports: [{
-      set: '@fortawesome/free-solid-svg-icons',
-      icons: ['fas']
-    },
-    {
-      set: '@fortawesome/free-regular-svg-icons',
-      icons: ['far']
-    },
-    {
-      set: '@fortawesome/free-brands-svg-icons',
-      icons: ['fab']
-    }
-    ]
-  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     // 解决引用文件过大会报错的问题

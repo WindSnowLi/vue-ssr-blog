@@ -23,7 +23,7 @@
       <nav class="menu">
         <div class="icon-list">
           <nuxt-link :to="{ name: 'index' }">
-            <fa :icon="['fa', 'home']" />
+            <fa :icon="['fa', 'star']" />
             <span>首页</span>
           </nuxt-link>
           <nuxt-link :to="{ name: 'article-type' }">
@@ -43,7 +43,7 @@
             <span>友链</span>
           </nuxt-link>
           <a v-if="adminPage" :href="adminPage">
-            <fa :icon="['fa', 'cog']" />
+            <fa :icon="['fa', 'user-secret']" />
             <span>后台</span>
           </a>
         </div>
